@@ -145,7 +145,7 @@ a {
 .header_section{
 	width: 100%; 
 	float: left;
-	background-image: url(../images/banner.jpg);
+    background-image: url(../images/about-img.jpg);
 	height: auto;
 	padding-top: 20px;	
 	background-size: cover;
@@ -186,23 +186,24 @@ a {
     width: 100%;
     float: left;
     padding-top: 30px;
+    height: 95vh;
 }
 
 .taital{
-	width: 57%; 
-	float: left;
+	/* width: 57%;  */
+	float: right;
 	font-size: 60pt;
-	color: #ffffff;
+	color: #e46c04;
 	text-align: right;
 }
 
 .ram{ width: 45%; float: left; }
 
 .consectetur_text{
-	width: 90%;
-	float: left;
+	/* width: 90%; */
+	float: right;
 	font-size: 24px;
-	color: #fefcfc;
+	color: #3c3c3c;
 	line-height: 50px;
 }
 
@@ -239,8 +240,8 @@ a {
 .about_section{
 	width: 100%;
 	float: left;
-	background-image: url(../images/about-img.jpg);
-	height: auto;
+	
+	min-height: 100vh;
 	background-size: 100%;
 	background-repeat: no-repeat;
 }
@@ -300,8 +301,9 @@ a {
 .gallery_main{
 	width: 100%;
 	float: left;
-	background-color:#f7941d;
+	background-color:#eb8b23;
 	height: auto;
+    min-height: 100vh;
 }
 
 .sed_text{
@@ -364,7 +366,7 @@ a {
 	width: 100%; 
 	float: left;
 	background-color: #ffffff;
-	height: auto;
+	height: 100vh;
 	padding-top: 100px;
 }
 
@@ -564,8 +566,8 @@ button.btn.btn-primary, button.btn.btn-primary:hover, button.btn.btn-primary:foc
 .section_footer{
 	width: 100%;
 	float: left;
-	background-color: #272222;
-	height: auto;
+	background-color: #4c4c4b;
+	height: 100vh;
 	padding-top: 30px;
 	padding-bottom: 30px; 
 
@@ -739,3 +741,26 @@ button.btn.btn-primary, button.btn.btn-primary:hover, button.btn.btn-primary:foc
 	padding-bottom: 20px;
 }
 .footer-logo{  }
+
+.shopping-btn {
+    width: 70px;
+    height: 70px;
+    background-color: #E98827;
+    border-radius: 50%;
+    box-shadow: 0 6px 10px 0 #666;
+    transition: all 0.1s ease-in-out;
+  
+    font-size: 50px;
+    color: white;
+    text-align: center;
+    line-height: 70px;
+  
+    position: fixed;
+    right: 50px;
+    bottom: 50px;
+ }
+  
+ .shopping-btn:hover {
+    box-shadow: 0 6px 14px 0 #666;
+    transform: scale(1.05);
+ }
