@@ -160,6 +160,30 @@
 
 	<div data-include="footer"></div>
 
+	<div class="modal fade" id="successModal" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel">
+		<div class="modal-dialog modal-sm" role="document">
+			<div class="modal-content">
+				<div class="modal-body">
+					<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span
+							aria-hidden="true">&times;</span></button>
+					<h4 class="modal-title">Email Message Successfully Sent</h4>
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<div class="modal fade" id="failedModal" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel">
+		<div class="modal-dialog modal-sm" role="document">
+			<div class="modal-content">
+				<div class="modal-body">
+					<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span
+							aria-hidden="true">&times;</span></button>
+					<h4 class="modal-title" style="color: #f7941d;">Failed to send Email Message</h4>
+				</div>
+			</div>
+		</div>
+	</div>
+
 	<!-- JS VENDOR -->
 	<script src="js/vendor/modernizr.min.js"></script>
 	<script src="js/vendor/jquery.min.js"></script>
@@ -173,16 +197,23 @@
 		var form_id = "email_form";
 		var sendButton = $("#" + form_id + " [name='send']");
 		var data = {
+			// "access_token": "tlgb95i7ycryjs1ddu5yqf1j" 
 			"access_token": "lbftyvqlbdrqvs0tcldd4ufp"
 		};
 
 		function onSuccess() {
+			$('#successModal').modal('show', setTimeout(function () {
+				$('#successModal').modal('hide');
+			}, 5000));
 			// remove this to avoid redirect
-			window.location = window.location.pathname + "?message=Email+Successfully+Sent%21&isError=0";
+			// window.location = window.location.pathname + "?message=Email+Successfully+Sent%21&isError=0";
 		}
 		function onError(error) {
+			$('#failedModal').modal('show', setTimeout(function () {
+				$('#failedModal').modal('hide');
+			}, 5000));
 			// remove this to avoid redirect
-			window.location = window.location.pathname + "?message=Email+could+not+be+sent.&isError=1";
+			// window.location = window.location.pathname + "?message=Email+could+not+be+sent.&isError=1";
 		}
 
 
