@@ -69,7 +69,7 @@
 					</div>
 
 					<div class="col-12 col-sm-12 col-md-12">
-						<form class="form-contact contact-form" form-id="form_001">
+						<form class="form-contact contact-form" form-id="form_001" id="email_form">
 							<div class="row">
 								<div class="col-sm-6 col-md-6">
 									<div class="form-group">
@@ -100,14 +100,15 @@
 								</div>
 							</div>
 							<div class="form-group">
-								<textarea name="message" class="form-control" rows="6"
+								<textarea name="text" class="form-control" rows="6"
 									placeholder="Enter Your Message"></textarea>
 								<div class="help-block with-errors"></div>
 							</div>
 							<div class="form-group">
 								<div class="text-center">
 									<div id="success"></div>
-									<button type="submit" class="btn btn-primary">SEND MESSAGE</button>
+									<button id="submit_form" name="send" type="submit" class="btn btn-primary">SEND
+										MESSAGE</button>
 								</div>
 							</div>
 						</form>
@@ -115,7 +116,6 @@
 				</div>
 
 				<div class="row mt-4">
-
 					<!-- Item 1 -->
 					<div class="col-12 col-sm-6 col-md-4">
 						<div class="rs-icon-info-4 mb-5">
@@ -124,12 +124,11 @@
 							</div>
 							<div class="body">
 								<h3 class="title">Address</h3>
-								<p class="mb-1">Palm Paw Foods India Pvt Ltd.,Old No.15/1,New No.31/33,
-									Rajeswari Street,Rajaram Metha Nagar,Chennai - 29.</p>
+								<p class="mb-1">Palm Paw Foods India Pvt Ltd., Old No.15/1, New No.31/33,
+									Rajeswari Street, Rajaram Metha Nagar, Chennai - 29.</p>
 							</div>
 						</div>
 					</div>
-
 					<!-- Item 2 -->
 					<div class="col-12 col-sm-6 col-md-4">
 						<div class="rs-icon-info-4 mb-5">
@@ -142,7 +141,6 @@
 							</div>
 						</div>
 					</div>
-
 					<!-- Item 3 -->
 					<div class="col-12 col-sm-6 col-md-4">
 						<div class="rs-icon-info-4 mb-5">
@@ -170,6 +168,54 @@
 	<script src="js/vendor/owl.carousel.js"></script>
 	<script src="js/vendor/jquery.magnific-popup.min.js"></script>
 	<script src="js/script.js"></script>
+
+	<script>
+		var form_id = "email_form";
+		var sendButton = $("#" + form_id + " [name='send']");
+		var data = {
+			"access_token": "tlgb95i7ycryjs1ddu5yqf1j"
+		};
+
+		function onSuccess() {
+			// remove this to avoid redirect
+			window.location = window.location.pathname + "?message=Email+Successfully+Sent%21&isError=0";
+		}
+		function onError(error) {
+			// remove this to avoid redirect
+			window.location = window.location.pathname + "?message=Email+could+not+be+sent.&isError=1";
+		}
+
+
+		function send() {
+			sendButton.val('Sending…');
+			sendButton.prop('disabled', true);
+
+			var subject = $("#" + form_id + " [name='subject']").val();
+			var name = $("#" + form_id + " [name='name']").val();
+			var email = $("#" + form_id + " [name='email']").val();
+			var mobile = $("#" + form_id + " [name='mobile']").val();
+			var message = $("#" + form_id + " [name='text']").val();
+			data['subject'] = subject;
+			data['text'] = "Name: " + name + "\n"
+				+ "Email: " + email + "\n"
+				+ "Mobile: " + mobile + "\n"
+				+ "Message: " + message;
+
+			$.post('https://postmail.invotes.com/send',
+				data,
+				onSuccess
+			).fail(onError);
+
+			return false;
+		}
+
+		sendButton.on('click', send);
+
+		var $form = $("#" + form_id);
+		$form.submit(function (event) {
+			event.preventDefault();
+		});
+	</script>
 </body>
 
 </html>

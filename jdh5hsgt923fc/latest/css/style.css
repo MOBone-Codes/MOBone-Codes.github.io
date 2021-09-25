@@ -921,7 +921,7 @@ blockquote {
 }
 .text-black a,
 .rs-team-1 .title a {
-  color: #222222;
+  color: #f7941d;
 }
 
 .pos-relative {
@@ -1202,7 +1202,7 @@ SOSMED-ICON
   color: #f7941d;
 }
 .sosmed-icon a {
-  color: #fff;
+  color: #7d7d7d;
   background-color: transparent;
   width: 40px;
   height: 40px;
@@ -1574,10 +1574,6 @@ ICON 2
 }
 .rs-icon-info-4 .title {
   color: #7d7d7d;
-}
-
-.info-text a {
-  color: #fff;
 }
 
 /* ==========================
@@ -2930,36 +2926,6 @@ Back To Top Section
     font-size: 14px;
   }
 }
-@media (max-width: 475px) {
-  .banner .wrap-caption .caption-heading {
-    font-size: 20px;
-    width: 220px;
-  }
-  .wrap-caption a {
-    margin-top: 0px !important;
-    padding: 5px 0px !important;
-  }
-  .banner .owl-nav {
-    display: none;
-  }
-  html#ecwid_html
-    body#ecwid_body
-    .ec-size
-    .ec-store
-    .form-control--small
-    .form-control__button {
-    font-size: 12px !important;
-  }
-  .grid-product__button.grid-product__buy-now span {
-    font-size: 12px !important;
-  }
-  .banner.owl-carousel {
-    height: 30%;
-  }
-  .banner.owl-carousel div:not(.owl-controls) {
-    height: 100%;
-  }
-}
 
 .content-wrap {
   padding: 80px 0;
@@ -3583,10 +3549,18 @@ Back To Top Section
  * Custom
  * -----------------------------------------------------------------------------
  */
+.info-text a {
+  color: #fff;
+}
 
 a.navbar-brand img {
   width: 110px !important;
 }
+.navbar-main .navbar {
+  padding-top: 7px;
+  padding-bottom: 7px;
+}
+
 @media screen and (max-width: 767px) {
   .rs-feature-box-1 {
     padding-left: 25px;
@@ -3604,6 +3578,7 @@ a.navbar-brand img {
     height: 20px;
   }
 }
+
 div#footer-whatsapp {
   border-radius: 50%;
   position: fixed;
@@ -3612,50 +3587,76 @@ div#footer-whatsapp {
   background-color: #25d366;
   z-index: 9;
 }
+
+.face {
+  width: 40px;
+  height: 40px;
+  text-align: center;
+  padding: 3px;
+}
+
+.face a {
+  color: #ffff;
+}
+
 .face:hover {
   animation: shake 0.82s cubic-bezier(0.36, 0.07, 0.19, 0.97) both;
   transform: translate3d(0, 0, 0);
   backface-visibility: hidden;
   perspective: 1000px;
 }
+
 .section.bgi-left p {
   color: #636362;
   font-size: 17px;
 }
+
 .section.what-sec p,
 .section.what-sec li {
   color: black;
   font-size: 17px;
   text-align: justify;
 }
+
 .section.sustain-sec p {
   color: black;
   text-align: justify;
   font-size: 17px;
 }
+
 .footer p {
   font-size: 17px;
 }
+
 .section.sustain-sec .content-wrap {
   padding-top: 0px;
 }
+
 .header-1 .navbar-main.stiky .nav-link {
   color: #f7941d;
 }
+
+.text-black a:hover {
+  color: #222222;
+}
+
 .accordion p,
 .accordion li {
   font-size: 18px;
   color: black;
 }
+
 .contact-sec p {
   font-size: 16px;
   text-align: center;
   color: black;
 }
+
 .what-sec ul {
   padding-left: 20px;
   margin-left: 0px;
 }
+
 @media screen and (max-width: 767px) {
   .header-1 .navbar-main .nav-link {
     color: #f7941d;
@@ -3669,6 +3670,7 @@ div#footer-whatsapp {
   transform: scale(2);
   background-color: transparent;
 }
+
 #loading {
   position: fixed;
   top: 0;
@@ -3677,10 +3679,12 @@ div#footer-whatsapp {
   width: 100vw;
   height: 100vh;
   background-color: rgba(192, 192, 192, 0.5);
+  background-size: 50%;
   background-image: url(../images/mobone/loading.gif);
   background-repeat: no-repeat;
   background-position: center;
 }
+
 #shop_loading {
   position: fixed;
   top: 0;
@@ -3688,8 +3692,40 @@ div#footer-whatsapp {
   z-index: 100;
   width: 100vw;
   height: 100vh;
+  background-size: 50%;
   background-color: rgba(192, 192, 192, 0.5);
   background-image: url(../images/mobone/loading.gif);
   background-repeat: no-repeat;
   background-position: center;
 }
+
+/* @media (max-width: 475px) {
+  .banner .wrap-caption .caption-heading {
+    font-size: 20px;
+    width: 220px;
+  }
+  .wrap-caption a {
+    margin-top: 0px !important;
+    padding: 5px 0px !important;
+  }
+  .banner .owl-nav {
+    display: none;
+  }
+  html#ecwid_html
+    body#ecwid_body
+    .ec-size
+    .ec-store
+    .form-control--small
+    .form-control__button {
+    font-size: 12px !important;
+  }
+  .grid-product__button.grid-product__buy-now span {
+    font-size: 12px !important;
+  }
+  .banner.owl-carousel {
+    height: 30%;
+  }
+  .banner.owl-carousel div:not(.owl-controls) {
+    height: 100%;
+  }
+} */
