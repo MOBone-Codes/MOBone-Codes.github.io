@@ -265,26 +265,3 @@ $(window).load(function () {
 
   $("#loading").fadeOut();
 });
-
-window.oncontextmenu = function () {
-  return false;
-};
-
-document.addEventListener(
-  "keydown",
-  function (event) {
-    var key = event.key || event.keyCode;
-    console.log(event);
-    if (key == "F12" || key == 123) {
-      event.preventDefault();
-      return false;
-    } else if (
-      (event.ctrlKey && event.shiftKey && (key == "I" || key == 73)) ||
-      (event.ctrlKey && event.shiftKey && (key == "J" || key == 74))
-    ) {
-      event.preventDefault();
-      return false;
-    }
-  },
-  false
-);
