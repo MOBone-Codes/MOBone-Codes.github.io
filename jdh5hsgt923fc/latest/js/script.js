@@ -264,6 +264,20 @@ $(window).load(function () {
       700
     );
   });
-
+  setWhatsapp("social_whatsapp");
   $("#loading").fadeOut();
 });
+
+function setWhatsapp(id) {
+  if (WURFL.is_mobile === true) {
+    $("." + id).attr(
+      "href",
+      "whatsapp://send?phone=+919655692559&amp;text=Hi, am looking for your product!"
+    );
+  } else {
+    $("." + id).attr(
+      "href",
+      "https://api.whatsapp.com/send?phone=+919655692559&amp;text=Hi, am looking for your product!"
+    );
+  }
+}
