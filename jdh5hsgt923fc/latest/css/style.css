@@ -3699,6 +3699,38 @@ div#footer-whatsapp {
   background-position: center;
 }
 
+.sosmed-icon-i a {
+  background-color: transparent;
+  width: 25px;
+  height: 40px;
+  font-size: 18px;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  text-align: center;
+  margin: 0 2px;
+  background: url(../images/mobone/poweredby.png);
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: contain;
+}
+
+.sosmed-icon-i a:hover {
+  background-color: transparent;
+  width: 25px;
+  height: 40px;
+  font-size: 18px;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  text-align: center;
+  margin: 0 2px;
+  background: url(../images/mobone/poweredby-i.png);
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: contain;
+}
+
 /* @media (max-width: 475px) {
   .banner .wrap-caption .caption-heading {
     font-size: 20px;

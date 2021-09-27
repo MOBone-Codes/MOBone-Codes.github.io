@@ -10,6 +10,8 @@ $(document).ready(function () {
     $(this).load(file);
   });
 
+  $('[data-toggle="tooltip"]').tooltip();
+
   /* =================================
 	LOADER 
 	=================================== */
