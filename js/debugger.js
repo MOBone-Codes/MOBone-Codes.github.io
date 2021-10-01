@@ -12,7 +12,7 @@ devtools.toString = function () {
   return "-";
 };
 
-if (parameter["xmode"] !== "debug" && detect.os != "iOS") {
+if (parameter["xmode"] !== "debug" && detect.OS !== "iOS") {
   console.profile(devtools);
   console.profileEnd(devtools);
 }
