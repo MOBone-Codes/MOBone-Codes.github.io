@@ -1,17 +1,19 @@
 var devtools = function () {};
 var parameter = {};
+const detect = new DetectOS();
 
 var r = /[?&]([^=#]+)=([^&#]*)/g,
   match;
 while ((match = r.exec(window.location))) parameter[match[1]] = match[2];
 
 devtools.toString = function () {
+  alert(detect);
   alert("Please close the Debugger");
   window.location = window.location;
   return "-";
 };
 
-if (parameter["xmode"] !== "debug") {
+if (parameter["xmode"] == "debug") {
   console.profile(devtools);
   console.profileEnd(devtools);
 }

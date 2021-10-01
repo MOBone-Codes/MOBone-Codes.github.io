@@ -272,12 +272,12 @@ function setWhatsapp(id) {
   if (WURFL.is_mobile === true) {
     $("." + id).attr(
       "href",
-      "whatsapp://send?phone=+919655692559&text=Hi, I'm looking for your product!"
+      "whatsapp://send?phone=+919655692559&text=Hi, I am interested in MOBone 🍖 for my 🐕"
     );
   } else {
     $("." + id).attr(
       "href",
-      "https://api.whatsapp.com/send?phone=+919655692559&text=Hi, I'm looking for your product!"
+      "https://api.whatsapp.com/send?phone=+919655692559&text=Hi, I am interested in MOBone 🍖 for my 🐕"
     );
   }
 }

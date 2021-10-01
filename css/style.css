@@ -3713,7 +3713,7 @@ div#footer-whatsapp {
   flex-direction: column;
   text-align: center;
   margin: 0 2px;
-  background: url(../images/mobone/poweredby.png);
+  background: url(../images/mobone/poweredby-i.png);
   background-repeat: no-repeat;
   background-position: center;
   background-size: contain;
@@ -3729,7 +3729,7 @@ div#footer-whatsapp {
   flex-direction: column;
   text-align: center;
   margin: 0 2px;
-  background: url(../images/mobone/poweredby-i.png);
+  background: url(../images/mobone/poweredby.png);
   background-repeat: no-repeat;
   background-position: center;
   background-size: contain;
