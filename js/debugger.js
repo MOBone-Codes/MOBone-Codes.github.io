@@ -7,13 +7,12 @@ var r = /[?&]([^=#]+)=([^&#]*)/g,
 while ((match = r.exec(window.location))) parameter[match[1]] = match[2];
 
 devtools.toString = function () {
-  alert(JSON.stringify(detect));
   alert("Please close the Debugger");
   window.location = window.location;
   return "-";
 };
 
-if (parameter["xmode"] == "debug") {
+if (parameter["xmode"] !== "debug" && detect.os != "iOS") {
   console.profile(devtools);
   console.profileEnd(devtools);
 }
