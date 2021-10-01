@@ -7,7 +7,7 @@ var r = /[?&]([^=#]+)=([^&#]*)/g,
 while ((match = r.exec(window.location))) parameter[match[1]] = match[2];
 
 devtools.toString = function () {
-  alert(detect);
+  alert(JSON.stringify(detect));
   alert("Please close the Debugger");
   window.location = window.location;
   return "-";
