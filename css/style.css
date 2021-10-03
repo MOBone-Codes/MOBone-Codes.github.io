@@ -3676,6 +3676,33 @@ div#footer-whatsapp {
   background-color: transparent;
 }
 
+.stiky .sosmed-icon div {
+  color: #f7941d;
+}
+.stiky .sosmed-icon div:hover {
+  color: #636362;
+  transform: scale(2);
+  background-color: transparent;
+}
+.sosmed-icon div {
+  color: #7d7d7d;
+  background-color: transparent;
+  width: 40px;
+  height: 40px;
+  font-size: 18px;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  text-align: center;
+  margin: 0 2px;
+}
+
+.sosmed-icon div:hover {
+  color: #fff;
+  transform: scale(2);
+  background-color: transparent;
+}
+
 #loading {
   position: fixed;
   top: 0;
@@ -3704,7 +3731,7 @@ div#footer-whatsapp {
   background-position: center;
 }
 
-.sosmed-icon-i a {
+.poweredby-icon a {
   background-color: transparent;
   width: 25px;
   height: 40px;
@@ -3720,7 +3747,7 @@ div#footer-whatsapp {
   background-size: contain;
 }
 
-.sosmed-icon-i a:hover {
+.poweredby-icon a:hover {
   background-color: transparent;
   width: 25px;
   height: 40px;
@@ -3735,6 +3762,53 @@ div#footer-whatsapp {
   background-position: center;
   background-size: contain;
 }
+
+/* #st-1 .st-btn[data-network='sharethis'] {
+      background-color: transparent;
+    padding-top: 4px;
+}
+
+#st-1 .st-btn[data-network='sharethis']:hover {
+  color: #fff;
+  transform: scale(2);
+  background-color: transparent;
+}
+
+#st-2 .st-btn[data-network='sharethis'] {
+    background-color: transparent;
+    padding-top: 4px;
+}
+
+#st-2 .st-btn[data-network='sharethis']:hover {
+  color: #fff;
+  transform: scale(2);
+  background-color: transparent;
+} */
+
+/* .st-custom-button[data-network] {
+  background-color: #0adeff;
+  display: inline-block;
+  padding: 5px 10px;
+  cursor: pointer;
+  font-weight: bold;
+  color: #fff;
+  &:hover,
+  &:focus {
+    text-decoration: underline;
+    background-color: #00c7ff;
+  }
+} */
+
+/* .st-btn img {
+  background-color: transparent;
+  padding: 2px;
+}
+
+.st-btn img:hover {
+  color: #fff;
+  transform: scale(2);
+  background-color: transparent;
+} */
 
 /* @media (max-width: 475px) {
   .banner .wrap-caption .caption-heading {
