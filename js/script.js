@@ -79,16 +79,17 @@ $(document).ready(function () {
     b = slides.find(".owl-slide");
   b.each(function () {
     var e = $(this),
-      ocImg = e.find("img").attr("src");
+      ocImg = e.find("img").attr("src"),
+      ocBgColor = e.find("img").attr("bg-color");
     e.css({ "background-image": "url(" + ocImg + ")" });
-
+    e.css({ "background-color": ocBgColor });
     console.log("tes " + ocImg);
   });
 
   slides.owlCarousel({
     items: 1,
-    autoplay: true,
-    autoplayTimeout: 8000,
+    autoplay: false,
+    autoplayTimeout: 3000,
     autoplayHoverPause: true,
     loop: true,
     animateIn: "fadeIn",
@@ -99,7 +100,7 @@ $(document).ready(function () {
       "<span class='fa fa-chevron-left'></span>",
       "<span class='fa fa-chevron-right'></span>",
     ],
-    dots: true,
+    dots: false,
   });
 
   /* =================================

@@ -3688,6 +3688,7 @@ div#footer-whatsapp {
   color: #f7941d;
 }
 .stiky .sosmed-icon div:hover {
+  cursor: pointer;
   color: #636362;
   transform: scale(2);
   background-color: transparent;
@@ -3706,6 +3707,7 @@ div#footer-whatsapp {
 }
 
 .sosmed-icon div:hover {
+  cursor: pointer;
   color: #fff;
   transform: scale(2);
   background-color: transparent;
@@ -3748,7 +3750,7 @@ div#footer-whatsapp {
   justify-content: center;
   flex-direction: column;
   text-align: center;
-  margin: 0 2px;
+  margin: 0 5px;
   background: url(../images/mobone/poweredby-i.png);
   background-repeat: no-repeat;
   background-position: center;
@@ -3764,11 +3766,62 @@ div#footer-whatsapp {
   justify-content: center;
   flex-direction: column;
   text-align: center;
-  margin: 0 2px;
+  margin: 0 5px;
   background: url(../images/mobone/poweredby.png);
   background-repeat: no-repeat;
   background-position: center;
   background-size: contain;
+}
+
+.banner.owl-carousel .owl-slide {
+  background-repeat: no-repeat;
+  background-size: 500px;
+  background-position: 55vw;
+}
+@media (max-width: 1024px) {
+  .banner.owl-carousel .owl-slide {
+    background-size: 450px;
+    background-position: 40vw;
+  }
+}
+@media (max-width: 768px) {
+  .banner.owl-carousel .owl-slide {
+    background-size: 400px;
+    background-position: 30vw;
+  }
+}
+@media (max-width: 425px) {
+  .banner.owl-carousel .owl-slide {
+    background-repeat: no-repeat;
+    background-size: 350px;
+    background-position: right;
+  }
+}
+
+@media (max-width: 1024px) {
+  .banner .slider-pos {
+    top: 12%;
+  }
+}
+@media (max-width: 768px) {
+  .banner .slider-pos {
+    top: 12%;
+  }
+}
+@media (max-width: 425px) {
+  .banner .slider-pos {
+    top: 8%;
+  }
+}
+
+.banner.owl-carousel{
+  height: 85%;
+}
+
+@media (max-width: 425px) {
+  .banner.owl-carousel{
+    height: 90%;
+  }
 }
 
 /* #st-1 .st-btn[data-network='sharethis'] {
