@@ -7,7 +7,21 @@ $(document).ready(function () {
   var includes = $("[data-include]");
   $.each(includes, function () {
     var file = $(this).data("include") + ".html";
-    $(this).load(file);
+    $(this).load(file, function () {
+      $("#copyright_year").html(new Date().getFullYear());
+
+      //smooth scroll to top
+      $(".cd-top").on("click", function (event) {
+        event.preventDefault();
+        $("body,html").animate(
+          {
+            scrollTop: 0,
+          },
+          700
+        );
+      });
+      setWhatsapp("social_whatsapp");
+    });
   });
 
   $('[data-toggle="tooltip"]').tooltip();
@@ -252,19 +266,7 @@ $(document).ready(function () {
 $(window).load(function () {
   // PAGE IS FULLY LOADED
   // FADE OUT YOUR OVERLAYING DIV
-  $("#copyright_year").html(new Date().getFullYear());
 
-  //smooth scroll to top
-  $(".cd-top").on("click", function (event) {
-    event.preventDefault();
-    $("body,html").animate(
-      {
-        scrollTop: 0,
-      },
-      700
-    );
-  });
-  setWhatsapp("social_whatsapp");
   $("#loading").fadeOut();
 });
 
