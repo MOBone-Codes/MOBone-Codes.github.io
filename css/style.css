@@ -2548,6 +2548,7 @@ Back To Top Section
   opacity: 1;
   -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=100)";
   filter: alpha(opacity=100);
+  cursor: pointer;
 }
 .cd-top.cd-fade-out {
   opacity: 0.5;
