@@ -88,7 +88,7 @@ $(document).ready(function () {
 
   slides.owlCarousel({
     items: 1,
-    autoplay: false,
+    autoplay: true,
     autoplayTimeout: 3000,
     autoplayHoverPause: true,
     loop: true,
