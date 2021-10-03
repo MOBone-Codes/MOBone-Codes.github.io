@@ -3622,6 +3622,14 @@ div#footer-whatsapp {
   font-size: 17px;
 }
 
+.footer {
+  background: url("../images/mobone/statistic_bg.jpg");
+  color: #ffffff;
+  background-size: cover;
+  background-position: right;
+  background-repeat: no-repeat;
+}
+
 .footer p {
   font-size: 17px;
 }
