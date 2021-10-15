@@ -2756,10 +2756,9 @@ Back To Top Section
     position: relative;
     top: 0;
   }
-  .navbar-collapse{
+  .navbar-collapse {
     background-color: white;
   }
-
 }
 /**
  * 5. - SECTION
@@ -3824,7 +3823,6 @@ div#footer-whatsapp {
   height: 100vh;
 }
 
-
 @media (min-width: 576px) {
   .d-sm-block {
     display: unset !important;
@@ -3836,8 +3834,8 @@ div#footer-whatsapp {
   }
 }
 .curve1 {
-  background-image: url(../images/test/GoldCurve.svg);
-  background-size: 100% calc(100% - 1px);;
+  background-image: url(../images/mobone/WhiteCurve.svg);
+  background-size: 100% calc(100% - 1px);
   background-repeat: no-repeat;
   background-position: top center;
   position: absolute;
@@ -3847,7 +3845,7 @@ div#footer-whatsapp {
   width: 100%;
 }
 .curve2 {
-  background-image: url(../images/test/OrangeCurve.svg);
+  background-image: url(../images/mobone/OrangeCurve.svg);
   background-size: 100% calc(100% - 3px);
   background-repeat: no-repeat;
   background-position: top center;
