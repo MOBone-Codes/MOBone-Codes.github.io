@@ -6,22 +6,28 @@ $(document).ready(function () {
 
   var includes = $("[data-include]");
   $.each(includes, function () {
-    var file = $(this).data("include") + ".html";
-    $(this).load(file, function () {
-      $("#copyright_year").html(new Date().getFullYear());
-
-      //smooth scroll to top
-      $(".cd-top").on("click", function (event) {
-        event.preventDefault();
-        $("body,html").animate(
-          {
-            scrollTop: 0,
-          },
-          700
-        );
+    if ($(this).data("include") == "header") {
+      var file = $(this).data("include") + ".html";
+      $(this).load(file, function () {
+        xSearch("id=my-search-37334002");
       });
-      setWhatsapp("social_whatsapp");
-    });
+    } else {
+      var file = $(this).data("include") + ".html";
+      $(this).load(file, function () {
+        $("#copyright_year").html(new Date().getFullYear());
+        //smooth scroll to top
+        $(".cd-top").on("click", function (event) {
+          event.preventDefault();
+          $("body,html").animate(
+            {
+              scrollTop: 0,
+            },
+            700
+          );
+        });
+        setWhatsapp("social_whatsapp");
+      });
+    }
   });
 
   $('[data-toggle="tooltip"]').tooltip();
