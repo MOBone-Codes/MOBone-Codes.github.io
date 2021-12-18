@@ -179,10 +179,11 @@ $(document).ready(function () {
   });
 });
 
+$(".close_popup").on("click", () => $(".popup").toggleClass("hide"));
+
 $(window).load(function () {
   // PAGE IS FULLY LOADED
   // FADE OUT YOUR OVERLAYING DIV
-
   $("#loading").fadeOut();
 });
 

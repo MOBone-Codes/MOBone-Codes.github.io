@@ -12,13 +12,20 @@ devtools.toString = function () {
   return "-";
 };
 
-if (parameter["xmode"] !== "debug" && detect.OS !== "iOS") {
+if (
+  !window.location.host.startsWith("localhost") &&
+  parameter["xmode"] !== "debug" &&
+  detect.OS !== "iOS"
+) {
   console.profile(devtools);
   console.profileEnd(devtools);
 }
 
 window.oncontextmenu = function () {
-  if (parameter["xmode"] !== "debug") {
+  if (
+    !window.location.host.startsWith("localhost") &&
+    parameter["xmode"] !== "debug"
+  ) {
     return false;
   } else {
     return true;
@@ -26,7 +33,10 @@ window.oncontextmenu = function () {
 };
 
 window.addEventListener("keydown", function (e) {
-  if (parameter["xmode"] !== "debug") {
+  if (
+    !window.location.host.startsWith("localhost") &&
+    parameter["xmode"] !== "debug"
+  ) {
     if (
       // CMD + Alt + I (Chrome, Firefox, Safari)
       (e.metaKey == true && e.altKey == true && e.keyCode == 73) ||

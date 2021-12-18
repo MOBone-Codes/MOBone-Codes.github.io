@@ -1202,7 +1202,7 @@ SOSMED-ICON
   color: #f7941d;
 }
 .sosmed-icon a {
-  color: #7d7d7d;
+  color: #ffffff;
   background-color: transparent;
   width: 40px;
   height: 40px;
@@ -3710,7 +3710,7 @@ div#footer-whatsapp {
 }
 
 .sosmed-icon div {
-  color: #7d7d7d;
+  color: #ffffff;
   background-color: transparent;
   width: 40px;
   height: 40px;
@@ -3735,6 +3735,50 @@ div#footer-whatsapp {
     transform: scale(2);
     background-color: transparent;
   }
+}
+
+.popup {
+  /* background-color: #aaa; */
+  /* display: inline; */
+  /* float: left; */
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  /* width: 100%; */
+  z-index: 9998;
+}
+
+.popup-image {
+  width: 50vw;
+  height: auto;
+}
+@media screen and (max-width: 768px) {
+  .popup-image {
+    width: 75vw;
+    height: auto;
+  }
+}
+@media screen and (max-width: 425px) {
+  .popup-image {
+    width: 80vw;
+    height: auto;
+  }
+}
+.close_popup {
+  width: 30px;
+  height: 30px;
+  background-size: 100%;
+  background-image: url(../images/mobone/offers/close.png);
+  position: absolute;
+  background-repeat: no-repeat;
+  background-position: center;
+  top: -10px;
+  right: -10px;
+}
+
+.hide {
+  display: none !important;
 }
 
 #loading {
@@ -3972,3 +4016,19 @@ div#footer-whatsapp {
     height: 100%;
   }
 } */
+html#ecwid_html
+  body#ecwid_body
+  .horizontal-menu-container.horizontal-desktop
+  nav.horizontal-menu {
+  background-color: #f7941d;
+}
+
+html#ecwid_html
+  body#ecwid_body
+  .horizontal-menu-container.horizontal-desktop
+  .horizontal-menu-item
+  > a
+  span {
+  color: #fff;
+  font-size: large;
+}
