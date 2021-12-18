@@ -1217,6 +1217,7 @@ SOSMED-ICON
   color: #f7941d;
   background-color: transparent;
 }
+
 .sosmed-icon.icon-bg-primary a {
   -webkit-border-radius: 50%;
   -moz-border-radius: 50%;
@@ -3702,6 +3703,9 @@ div#footer-whatsapp {
   background-color: transparent;
 }
 @media screen and (max-width: 991px) {
+  .sosmed-icon a {
+    color: #f7941d;
+  }
   .sosmed-icon a:hover {
     color: #f7941d;
     transform: scale(2);
@@ -3730,6 +3734,9 @@ div#footer-whatsapp {
 }
 
 @media screen and (max-width: 991px) {
+  .sosmed-icon div {
+    color: #f7941d;
+  }
   .sosmed-icon div:hover {
     color: #f7941d;
     transform: scale(2);
