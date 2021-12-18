@@ -4062,3 +4062,12 @@ html#ecwid_html
   color: #fff;
   font-size: large;
 }
+@media (max-width: 991.98px) {
+  #navbar-example {
+    padding-left: 5px;
+    width: 99vw;
+  }
+  .header-1 .navbar-main .nav-link {
+    padding-left: 5px;
+  }
+}
