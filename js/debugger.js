@@ -20,13 +20,7 @@ devtools.toString = function () {
 };
 
 if (detect.OS == "iOS" || detect.OS == "macOS") {
-  if (
-    !window.location.host.startsWith("localhost") &&
-    parameter["xmode"] !== "debug"
-  ) {
-    console.profile(devtools);
-    console.profileEnd(devtools);
-  }
+ 
 } else {
   if (
     !window.location.host.startsWith("localhost") &&
