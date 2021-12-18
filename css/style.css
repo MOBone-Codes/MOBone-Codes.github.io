@@ -804,7 +804,7 @@ blockquote {
   font-style: italic;
 }
 
-@media (max-width: 767px) {
+@media (max-width: 767.98px) {
   .bgi-hide-xs {
     background-image: none !important;
   }
@@ -978,7 +978,7 @@ blockquote {
   position: relative;
   z-index: 2;
 }
-@media (max-width: 767px) {
+@media (max-width: 767.98px) {
   .overlap {
     margin-top: 0;
   }
@@ -1448,7 +1448,7 @@ ICON 2
   border-radius: 100px;
   text-align: center;
 }
-@media (max-width: 992px) {
+@media (max-width: 991.98px) {
   .box-icon-1 .icon {
     line-height: inherit;
   }
@@ -1464,7 +1464,7 @@ ICON 2
   font-size: 16px;
   font-weight: 700;
 }
-@media (max-width: 992px) {
+@media (max-width: 991.98px) {
   .box-icon-1 .body-content {
     font-size: 18px;
   }
@@ -1905,7 +1905,7 @@ TESTIMONIALS
   margin-bottom: 20px;
   font-size: 12px;
 }
-@media (max-width: 768px) {
+@media (max-width: 767.98px) {
   .testimonial-2 .media {
     float: none;
     margin-left: auto;
@@ -2682,7 +2682,7 @@ Back To Top Section
 .contact-info > div:last-child {
   margin-right: 0;
 }
-@media (max-width: 767px) {
+@media (max-width: 767.98px) {
   .contact-info > div {
     margin-right: 20px;
   }
@@ -2747,7 +2747,7 @@ Back To Top Section
   color: #f7941d;
 }
 
-@media (max-width: 991px) {
+@media (max-width: 991.98px) {
   .header-1 .navbar-main {
     background-color: #ffffff;
     padding-bottom: 10px;
@@ -2899,7 +2899,7 @@ Back To Top Section
 .banner .wrap-caption .btn-light {
   margin-right: 15px;
 }
-@media (max-width: 991px) {
+@media (max-width: 991.98px) {
   .banner .wrap-caption {
     margin-top: 10vh;
     width: 100%;
@@ -2916,7 +2916,7 @@ Back To Top Section
     margin-bottom: 5px;
   }
 }
-@media (max-width: 767px) {
+@media (max-width: 767.98px) {
   .banner .wrap-caption {
     margin-top: 10vh;
     width: 100%;
@@ -3131,7 +3131,7 @@ Back To Top Section
   max-width: 70%;
   float: left;
 }
-@media (max-width: 768px) {
+@media (max-width: 767.98px) {
   .cta-1 .body-text {
     max-width: 100%;
     text-align: center;
@@ -3141,7 +3141,7 @@ Back To Top Section
   max-width: 30%;
   float: right;
 }
-@media (max-width: 768px) {
+@media (max-width: 767.98px) {
   .cta-1 .body-action {
     max-width: 100%;
     float: none;
@@ -3753,18 +3753,41 @@ div#footer-whatsapp {
   width: 40vw;
   height: auto;
 }
-@media screen and (max-width: 768px) {
+
+@media (max-width: 1399.98px) {
+  .popup-image {
+    width: 45vw;
+  }
+}
+@media (max-width: 1399.98px) {
+  .popup-image {
+    width: 45vw;
+  }
+}
+
+@media (max-width: 1199.98px) {
+  .popup-image {
+    width: 50vw;
+  }
+}
+@media (max-width: 991.98px) {
+  .popup-image {
+    width: 60vw;
+  }
+}
+
+@media (max-width: 767.98px) {
   .popup-image {
     width: 75vw;
-    height: auto;
   }
 }
-@media screen and (max-width: 425px) {
+
+@media (max-width: 575.98px) {
   .popup-image {
     width: 80vw;
-    height: auto;
   }
 }
+
 .close_popup {
   width: 30px;
   height: 30px;
@@ -3847,35 +3870,35 @@ div#footer-whatsapp {
   background-position-y: bottom;
   background-position-x: right;
 }
-@media (max-width: 1024px) {
+@media (max-width: 1199.98px) {
   .banner.owl-carousel .owl-slide {
     background-size: 700px;
   }
 }
-@media (max-width: 768px) {
+@media (max-width: 767.98px) {
   .banner.owl-carousel .owl-slide {
     background-size: 500px;
     background-position-x: center;
   }
 }
-@media (max-width: 425px) {
+@media (max-width: 575.98px) {
   .banner.owl-carousel .owl-slide {
     background-size: contain;
     background-position-x: center;
   }
 }
 
-@media (max-width: 1024px) {
+@media (max-width: 1199.98px) {
   .banner .slider-pos {
     top: 12%;
   }
 }
-@media (max-width: 768px) {
+@media (max-width: 767.98px) {
   .banner .slider-pos {
     top: 12%;
   }
 }
-@media (max-width: 425px) {
+@media (max-width: 575.98px) {
   .banner .slider-pos {
     top: 8%;
   }
@@ -3890,7 +3913,7 @@ div#footer-whatsapp {
     display: unset !important;
   }
 }
-@media (min-width: 991px) {
+@media (min-width: 992px) {
   .d-sm-block {
     display: block !important;
   }
@@ -3986,7 +4009,7 @@ div#footer-whatsapp {
   background-color: transparent;
 } */
 
-/* @media (max-width: 475px) {
+/* @media (max-width: 575.98px) {
   .banner .wrap-caption .caption-heading {
     font-size: 20px;
     width: 220px;
