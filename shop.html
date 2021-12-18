@@ -50,13 +50,22 @@
 	<!-- HEADER -->
 	<div data-include="header"></div>
 
+	<div class="popup" style="text-align: center;">
+		<div style="padding-bottom: 10px;">
+			<a href="./subscribe"><img class="popup-image" src="./images/mobone/offers/offer1.png" /></a>
+			<a href="#" class="close_popup">
+			</a>
+		</div>
+		<a href="./subscribe" class="btn btn-primary">Subscribe Now </a>
+	</div>
+
 	<!-- BREADCRUMB -->
 	<!-- <div class="section bg-breadcrumb">
 		<div class="content-wrap py-0 pos-relative">
 			<div class="container">
 				<nav aria-label="breadcrumb">
 					<ol class="breadcrumb ">
-						<li class="breadcrumb-item"><a href="/index">Home</a></li>
+						<li class="breadcrumb-item"><a href="./index">Home</a></li>
 						<li class="breadcrumb-item active" aria-current="page">Shop</li>
 					</ol>
 				</nav>
@@ -75,19 +84,29 @@
 				</div>
 				<div class="row">
 					<div class="col col-md-12">
+						<!-- ECWID Container -->
+						<div id="my-categories-37334002"></div>
+					</div>
+				</div>
+				<div class="row">
+					<div class="col col-md-12">
+						<!-- ECWID Container -->
 						<div id="my-store-37334002"></div>
 					</div>
 				</div>
 				<div class="row">
 					<div class="col col-md-12 text-black">
 						<p>For Terms and Conditions, Shipping, Refund/Return/Cancellation and Privacy policy
-							<a href="/terms-and-conditions">Click Here</a>.
+							<a href="./terms-and-conditions">Click Here</a>.
 						</p>
 					</div>
 				</div>
 			</div>
 		</div>
 	</div>
+	<!-- ECWID Container -->
+	<!-- <div class="shopping-btn" id="my-shopping-cart-37334002"></div> -->
+	<div class="ec-cart-widget shopping-btn"></div>
 
 	<div data-include="footer"></div>
 
@@ -98,10 +117,12 @@
 	<script src="js/vendor/owl.carousel.js"></script>
 	<script src="js/vendor/jquery.magnific-popup.min.js"></script>
 	<script data-cfasync="false" type="text/javascript"
-		src="https://app.ecwid.com/script.js?37334002&data_platform=code&data_date=2021-03-02" charset="utf-8"></script>
-
+		src="https://app.ecwid.com/script.js?37334002&data_platform=code&data_date=2021-10-15" charset="utf-8"></script>
 	<script type="text/javascript">
 		xProductBrowser("categoriesPerRow=3", "views=grid(20,3) list(60) table(60)", "categoryView=grid", "searchView=list", "id=my-store-37334002");
+		xCategoriesV2("id=my-categories-37334002");
+		// xMinicart("style=", "layout=floating", "id=my-shopping-cart-37334002");
+		Ecwid.init();
 		Ecwid.OnPageLoaded.add(function (page) {
 			$("#shop_loading").fadeOut();
 		});
