@@ -19,24 +19,22 @@ devtools.toString = function () {
   return "-";
 };
 
-if (
-  !window.location.host.startsWith("localhost") &&
-  parameter["xmode"] !== "debug" &&
-  (detect.OS !== "iOS" || detect.OS !== "macOS")
-) {
-  alert(detect.OS);
-  alert(!window.location.host.startsWith("localhost"));
-  alert(parameter["xmode"] !== "debug");
-  alert(detect.OS !== "iOS");
-  alert(detect.OS !== "macOS");
-  alert(detect.OS !== "iOS" || detect.OS !== "macOS");
-  alert(
+if (detect.OS == "iOS" || detect.OS == "macOS") {
+  if (
     !window.location.host.startsWith("localhost") &&
-      parameter["xmode"] !== "debug" &&
-      (detect.OS !== "iOS" || detect.OS !== "macOS")
-  );
-  console.profile(devtools);
-  console.profileEnd(devtools);
+    parameter["xmode"] !== "debug"
+  ) {
+    console.profile(devtools);
+    console.profileEnd(devtools);
+  }
+} else {
+  if (
+    !window.location.host.startsWith("localhost") &&
+    parameter["xmode"] !== "debug"
+  ) {
+    console.profile(devtools);
+    console.profileEnd(devtools);
+  }
 }
 
 window.oncontextmenu = function () {
