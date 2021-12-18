@@ -7,15 +7,25 @@ var r = /[?&]([^=#]+)=([^&#]*)/g,
 while ((match = r.exec(window.location))) parameter[match[1]] = match[2];
 
 devtools.toString = function () {
-  alert("Please close the Debugger");
+  alert(
+    "Please close the Debugger Host:" +
+      window.location.host +
+      " Mode:" +
+      parameter["xmode"] +
+      " OS:" +
+      detect.OS
+  );
   window.location = window.location;
   return "-";
 };
 
 if (
-  !window.location.host.startsWith("localhost") &&
-  parameter["xmode"] !== "debug" &&
-  detect.OS !== "iOS"
+  !(
+    window.location.host.startsWith("localhost") ||
+    parameter["xmode"] == "debug" ||
+    detect.OS == "iOS" ||
+    detect.OS == "macOS"
+  )
 ) {
   console.profile(devtools);
   console.profileEnd(devtools);
