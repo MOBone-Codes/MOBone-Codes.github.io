@@ -19,16 +19,16 @@ devtools.toString = function () {
   return "-";
 };
 
-if (detect.OS == "iOS" || detect.OS == "macOS") {
- 
-} else {
-  if (
-    !window.location.host.startsWith("localhost") &&
-    parameter["xmode"] !== "debug"
-  ) {
-    console.profile(devtools);
-    console.profileEnd(devtools);
-  }
+if (
+  !(
+    window.location.host.startsWith("localhost") ||
+    parameter["xmode"] == "debug" ||
+    detect.OS == "iOS" ||
+    detect.OS == "macOS"
+  )
+) {
+  console.profile(devtools);
+  console.profileEnd(devtools);
 }
 
 window.oncontextmenu = function () {
