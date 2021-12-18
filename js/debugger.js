@@ -25,6 +25,16 @@ if (
   (detect.OS !== "iOS" || detect.OS !== "macOS")
 ) {
   alert(detect.OS);
+  alert(!window.location.host.startsWith("localhost"));
+  alert(parameter["xmode"] !== "debug");
+  alert(detect.OS !== "iOS");
+  alert(detect.OS !== "macOS");
+  alert(detect.OS !== "iOS" || detect.OS !== "macOS");
+  alert(
+    !window.location.host.startsWith("localhost") &&
+      parameter["xmode"] !== "debug" &&
+      (detect.OS !== "iOS" || detect.OS !== "macOS")
+  );
   console.profile(devtools);
   console.profileEnd(devtools);
 }
