@@ -9,7 +9,7 @@ $(document).ready(function () {
     if ($(this).data("include") == "header") {
       var file = $(this).data("include") + ".html";
       $(this).load(file, function () {
-        xSearch("id=my-search-37334002");
+        // xSearch("id=my-search-37334002");
       });
     } else {
       var file = $(this).data("include") + ".html";
@@ -179,12 +179,16 @@ $(document).ready(function () {
   });
 });
 
-$(".close_popup").on("click", () => $(".popup").toggleClass("hide"));
+$(".close_popup").on("click", () => {
+  $(".popup").toggleClass("hide");
+  $(".popup-base").toggleClass("hide");
+});
 
 $(window).load(function () {
   // PAGE IS FULLY LOADED
   // FADE OUT YOUR OVERLAYING DIV
   $("#loading").fadeOut();
+  $("#exampleModalCenter").show();
 });
 
 function setWhatsapp(id) {
