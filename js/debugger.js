@@ -24,6 +24,7 @@ if (
   parameter["xmode"] !== "debug" &&
   (detect.OS !== "iOS" || detect.OS !== "macOS")
 ) {
+  alert(detect.OS);
   console.profile(devtools);
   console.profileEnd(devtools);
 }
