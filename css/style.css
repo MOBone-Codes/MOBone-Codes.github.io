@@ -3755,6 +3755,7 @@ div#footer-whatsapp {
   /* width: 100%; */
   z-index: 3980;
   opacity: 100%;
+  min-width: 50vh;
 }
 
 .popup-base {
