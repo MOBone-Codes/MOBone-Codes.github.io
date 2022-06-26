@@ -3829,7 +3829,7 @@ div#footer-whatsapp {
   width: 100vw;
   height: 100vh;
   background-color: rgba(192, 192, 192, 1);
-  background-size: 50%;
+  background-size: 30%;
   background-image: url(../images/mobone/loading.gif);
   background-repeat: no-repeat;
   background-position: center;
@@ -3842,7 +3842,7 @@ div#footer-whatsapp {
   z-index: 4000;
   width: 100vw;
   height: 100vh;
-  background-size: 50%;
+  background-size: 30%;
   background-color: rgba(192, 192, 192, 1);
   background-image: url(../images/mobone/loading.gif);
   background-repeat: no-repeat;
