@@ -182,9 +182,7 @@ $(document).ready(function () {
 
 $(".shop-city-navigate").on("click", () => {
   var cityPage = $("#mobone_city").val();
-  var replaceUrl = window.location.pathname + "#!/" + cityPage
-  alert("12 -> " + replaceUrl)
-  window.location.replace(replaceUrl);
+  window.location.replace("/shop#!/" + cityPage);
 });
 
 $(".close_popup").on("click", () => {
