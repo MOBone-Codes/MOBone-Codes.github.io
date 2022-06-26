@@ -180,9 +180,13 @@ $(document).ready(function () {
 });
 
 
-$(".shop-city-navigate").on("click", () => {
+$(".shop-city-navigate").on("click", (event) => {
   var cityPage = $("#mobone_city").val();
-  window.location.replace("/shop#!/" + cityPage);
+  var replaceUrl = window.location.pathname + "#!/" + cityPage
+  event.preventDefault();
+  window.location.replace(replaceUrl);
+  $(".popup").toggleClass("hide");
+  $(".popup-base").toggleClass("hide");
 });
 
 $(".close_popup").on("click", () => {
