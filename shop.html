@@ -49,16 +49,24 @@
 	<div id="shop_loading"></div>
 	<!-- HEADER -->
 	<div data-include="header"></div>
-	<!-- <div class="popup-base">
+
+	<div class="popup-base hide">
 	</div>
-	<div class="popup" style="text-align: center;">
+	<div class="popup hide" style="text-align: center;">
 		<div style="padding-bottom: 10px;">
-			<a href="./subscribe"><img class="popup-image" src="./images/mobone/offers/offer1.png" /></a>
-			<a href="#" class="close_popup">
-			</a>
+			<div class="input-group mb-3">
+				<div class="input-group-prepend">
+					<label class="input-group-text" for="mobone_city">Select City: </label>
+				</div>
+				<select class="custom-select" id="mobone_city">
+					<option selected value="Chennai/c/135216751">Chennai</option>
+					<option value="Hyderabad/c/135216252">Hyderabad</option>
+					<option value="Bengaluru/c/135216002">Bengaluru</option>
+				</select>
+			</div>
 		</div>
-		<a href="./subscribe" class="btn btn-primary">Subscribe Now </a>
-	</div> -->
+		<a href="#" class="shop-city-navigate btn btn-primary">OK </a>
+	</div>
 
 	<!-- BREADCRUMB -->
 	<!-- <div class="section bg-breadcrumb">
@@ -126,6 +134,16 @@
 		Ecwid.init();
 		Ecwid.OnPageLoaded.add(function (page) {
 			$("#shop_loading").fadeOut();
+			if (window.location.hash) {
+				var hash = window.location.hash.substring(1); //Puts hash in variable, and removes the # character
+				if (hash.indexOf("!/c/") >= 0) {
+					$(".popup").toggleClass("hide");
+					$(".popup-base").toggleClass("hide");
+				}
+			} else {
+				$(".popup").toggleClass("hide");
+				$(".popup-base").toggleClass("hide");
+			}
 		});
 	</script>
 	<script src="js/script.js"></script>

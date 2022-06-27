@@ -1,8 +1,8 @@
 $(document).ready(function () {
   "use strict";
   /* =================================
-	Header and Footer 
-	=================================== */
+  Header and Footer 
+  =================================== */
 
   var includes = $("[data-include]");
   $.each(includes, function () {
@@ -33,8 +33,8 @@ $(document).ready(function () {
   $('[data-toggle="tooltip"]').tooltip();
 
   /* =================================
-	LOADER 
-	=================================== */
+  LOADER 
+  =================================== */
   $(".loader").delay(400).fadeOut();
   $(".animationload").delay(400).fadeOut("fast");
 
@@ -55,8 +55,8 @@ $(document).ready(function () {
     });
 
   /* =================================
-	NAVBAR 
-	=================================== */
+  NAVBAR 
+  =================================== */
 
   jQuery(window).scroll(function () {
     var top = jQuery(document).scrollTop();
@@ -79,8 +79,8 @@ $(document).ready(function () {
   });
 
   /* =================================
-	BANNER ROTATOR IMAGE 
-	=================================== */
+  BANNER ROTATOR IMAGE 
+  =================================== */
   var slides = $("#oc-fullslider"),
     b = slides.find(".owl-slide");
   b.each(function () {
@@ -123,8 +123,8 @@ $(document).ready(function () {
   });
 
   /* =================================
-	BACK TO TOP 
-	=================================== */
+  BACK TO TOP 
+  =================================== */
   // browser window scroll (in pixels) after which the "back to top" link is shown
   var offset = 300,
     //browser window scroll (in pixels) after which the "back to top" link opacity is reduced
@@ -148,8 +148,8 @@ $(document).ready(function () {
   });
 
   /* =================================
-	MAGNIFIC POPUP
-	=================================== */
+  MAGNIFIC POPUP
+  =================================== */
   $(".popup-youtube, .popup-vimeo, .popup-gmaps").magnificPopup({
     disableOn: 700,
     type: "iframe",
@@ -177,6 +177,16 @@ $(document).ready(function () {
       },
     },
   });
+});
+
+
+$(".shop-city-navigate").on("click", (event) => {
+  var cityPage = $("#mobone_city").val();
+  var replaceUrl = window.location.pathname + "#!/" + cityPage
+  event.preventDefault();
+  window.location.replace(replaceUrl);
+  $(".popup").toggleClass("hide");
+  $(".popup-base").toggleClass("hide");
 });
 
 $(".close_popup").on("click", () => {
