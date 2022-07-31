@@ -17,7 +17,6 @@
 	Favicons
 	=============================================== -->
 	<link rel="shortcut icon" href="images/mobone/fav_icon.png">
-
 	<!-- ==============================================
 	CSS VENDOR
 	=============================================== -->
@@ -32,7 +31,6 @@
 	Custom Stylesheet
 	=============================================== -->
 	<link rel="stylesheet" type="text/css" href="css/style.css" />
-
 	<!-- ==============================================
 	Custom JS
 	=============================================== -->
@@ -45,12 +43,10 @@
 </head>
 
 <body>
-
 	<!-- LOAD PAGE -->
 	<div id="loading"></div>
 	<!-- HEADER -->
 	<div data-include="header"></div>
-
 	<!-- BREADCRUMB -->
 	<!-- <div class="section bg-breadcrumb">
 		<div class="content-wrap py-0 pos-relative">
@@ -64,12 +60,10 @@
 			</div>
 		</div>
 	</div> -->
-
 	<!-- CONTENT -->
 	<div id="class" class="">
 		<div class="content-wrap contact-sec">
 			<div class="container">
-
 				<div class="row">
 					<div class="col-sm-12 col-md-12 mb-5">
 						<h2 class="section-heading text-center text-primary no-after mb-5">
@@ -79,83 +73,73 @@
 							Rs.3000/- per month only!!!
 						</p>
 					</div>
-
 					<div class="col-12 col-sm-12 col-md-12">
 						<form class="form-contact contact-form" form-id="form_001" id="email_form">
 							<div class="row">
 								<div class="col col-sm-12 col-md-12">
 									<div class="form-group">
 										<input type="text" name="petName" class="form-control"
-											placeholder="Name of the Pet" required="">
-										<div class="help-block with-errors"></div>
+											placeholder="Name of the Pet" required>
 									</div>
 								</div>
 								<div class="col-sm-6 col-md-6">
 									<div class="form-group">
 										<input type="text" name="petAge" class="form-control" placeholder="Age"
-											required="">
-										<div class="help-block with-errors"></div>
+											required>
 									</div>
 								</div>
 								<div class="col-sm-6 col-md-6">
 									<div class="form-group">
 										<input type="text" name="petWeight" class="form-control" placeholder="Weight"
-											required="">
-										<div class="help-block with-errors"></div>
+											required>
 									</div>
 								</div>
 								<div class="col-sm-6 col-md-6">
 									<div class="form-group">
 										<input type="text" name="petBreed" class="form-control" placeholder="Breed"
-											required="">
-										<div class="help-block with-errors"></div>
+											required>
 									</div>
 								</div>
 								<div class="col-sm-6 col-md-6">
 									<div class="form-group">
 										<input type="text" name="petAllergies" class="form-control"
-											placeholder="Allergies" required="">
-										<div class="help-block with-errors"></div>
+											placeholder="Allergies" required>
 									</div>
 								</div>
 								<div class="col col-sm-12 col-md-12">
 									<div class="form-group">
 										<textarea name="petCurrentFood" class="form-control" rows="3"
 											placeholder="Current Food"></textarea>
-										<div class="help-block with-errors"></div>
 									</div>
 								</div>
-
 								<div class="col-sm-12 col-md-12">
 									<div class="form-group">
 										<input type="text" name="owner" class="form-control"
-											placeholder="Name of the Pet Parent" required="">
-										<div class="help-block with-errors"></div>
+											placeholder="Name of the Pet Parent" required>
 									</div>
 								</div>
 								<div class="col-sm-6 col-md-6">
 									<div class="form-group">
 										<input type="email" name="ownerEmail" class="form-control" placeholder="Email"
-											required="">
-										<div class="help-block with-errors"></div>
+											required>
 									</div>
 								</div>
 								<div class="col-sm-6 col-md-6">
 									<div class="form-group">
-										<input type="text" name="ownerMobile" class="form-control"
-											placeholder="Mobile Number">
-										<div class="help-block with-errors"></div>
+										<input type="text" name="ownerMobile" class="form-control" pattern="[0-9]{10}"
+											placeholder="Mobile Number" required  maxlength="10" minlength="10"
+											oninvalid="this.setCustomValidity('Please enter valid mobile number.')"
+											oninput="this.setCustomValidity('')">
 									</div>
 								</div>
 								<div class="col-sm-12 col-md-12">
 									<div class="form-group">
 										<textarea name="ownerAddress" class="form-control" rows="5"
-											placeholder="Address"></textarea>
-										<div class="help-block with-errors"></div>
+											placeholder="Address" required></textarea>
 									</div>
 								</div>
 							</div>
-							<div class="form-group">
+							<div class="form-group mt-5">
 								<div class="text-center">
 									<div id="success"></div>
 									<button id="submit_form" name="send" type="submit" class="btn btn-primary">SUBSCRIBE
@@ -188,13 +172,10 @@
 						</div>
 					</div>
 				</div>
-
 			</div>
 		</div>
 	</div>
-
 	<div data-include="footer"></div>
-
 	<div class="modal fade" id="successModal" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel">
 		<div class="modal-dialog modal-sm" role="document">
 			<div class="modal-content">
@@ -206,7 +187,6 @@
 			</div>
 		</div>
 	</div>
-
 	<div class="modal fade" id="failedModal" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel">
 		<div class="modal-dialog modal-sm" role="document">
 			<div class="modal-content">
@@ -218,7 +198,6 @@
 			</div>
 		</div>
 	</div>
-
 	<!-- JS VENDOR -->
 	<script src="js/vendor/jquery.min.js"></script>
 	<script src="js/vendor/popper.min.js"></script>
@@ -226,35 +205,13 @@
 	<script src="js/vendor/owl.carousel.js"></script>
 	<script src="js/vendor/jquery.magnific-popup.min.js"></script>
 	<script src="js/script.js"></script>
-
 	<script>
 		var form_id = "email_form";
 		var sendButton = $("#" + form_id + " [name='send']");
 		var data = {
-			// "access_token": "tlgb95i7ycryjs1ddu5yqf1j" 
-			"access_token": "lbftyvqlbdrqvs0tcldd4ufp"
 		};
-
-		function onSuccess() {
-			$('#successModal').modal('show', setTimeout(function () {
-				$('#successModal').modal('hide');
-			}, 5000));
-			// remove this to avoid redirect
-			// window.location = window.location.pathname + "?message=Email+Successfully+Sent%21&isError=0";
-		}
-		function onError(error) {
-			$('#failedModal').modal('show', setTimeout(function () {
-				$('#failedModal').modal('hide');
-			}, 5000));
-			// remove this to avoid redirect
-			// window.location = window.location.pathname + "?message=Email+could+not+be+sent.&isError=1";
-		}
-
-
 		function send() {
-			sendButton.val('Sending…');
 			sendButton.prop('disabled', true);
-
 			var petName = $("#" + form_id + " [name='petName']").val();
 			var petAge = $("#" + form_id + " [name='petAge']").val();
 			var petWeight = $("#" + form_id + " [name='petWeight']").val();
@@ -265,7 +222,6 @@
 			var ownerEmail = $("#" + form_id + " [name='ownerEmail']").val();
 			var ownerMobile = $("#" + form_id + " [name='ownerMobile']").val();
 			var ownerAddress = $("#" + form_id + " [name='ownerAddress']").val();
-
 			data['subject'] = "Subscription Requested by " + owner + " for Pet " + petName;
 			data['text'] = "petName: " + petName + "\n"
 				+ "petAge: " + petAge + "\n"
@@ -277,17 +233,13 @@
 				+ "ownerEmail: " + ownerEmail + "\n"
 				+ "ownerMobile: " + ownerMobile + "\n"
 				+ "ownerAddress: " + ownerAddress + "\n";
-
-			$.post('https://postmail.invotes.com/send',
-				data,
-				onSuccess
-			).fail(onError);
-			return false;
+			sendMail(data);
+			sendButton.prop('disabled', false);
 		}
-		sendButton.on('click', send);
 		var $form = $("#" + form_id);
 		$form.submit(function (event) {
 			event.preventDefault();
+			send();
 		});
 	</script>
 </body>

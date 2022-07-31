@@ -17,7 +17,6 @@
 	Favicons
 	=============================================== -->
 	<link rel="shortcut icon" href="images/mobone/fav_icon.png">
-
 	<!-- ==============================================
 	CSS VENDOR
 	=============================================== -->
@@ -32,25 +31,22 @@
 	Custom Stylesheet
 	=============================================== -->
 	<link rel="stylesheet" type="text/css" href="css/style.css" />
-
 	<!-- ==============================================
 	Custom JS
 	=============================================== -->
 	<script src="js/vendor/modernizr.min.js"></script>
-	<script disable-devtool-auto
-		src='https://cdn.jsdelivr.net/npm/disable-devtool@latest/disable-devtool.min.js'></script>
+	<!-- <script disable-devtool-auto
+		src='https://cdn.jsdelivr.net/npm/disable-devtool@latest/disable-devtool.min.js'></script> -->
 	<script type="text/javascript" src="//wurfl.io/wurfl.js"></script>
 	<script type="text/javascript"
 		src="//platform-api.sharethis.com/js/sharethis.js#property=6156bc53370144001a899495&product=custom-share-buttons"></script>
 </head>
 
 <body>
-
 	<!-- LOAD PAGE -->
 	<div id="loading"></div>
 	<!-- HEADER -->
 	<div data-include="header"></div>
-
 	<!-- BREADCRUMB -->
 	<!-- <div class="section bg-breadcrumb">
 		<div class="content-wrap py-0 pos-relative">
@@ -64,12 +60,10 @@
 			</div>
 		</div>
 	</div> -->
-
 	<!-- CONTENT -->
 	<div id="class" class="">
 		<div class="content-wrap contact-sec">
 			<div class="container">
-
 				<div class="row">
 					<div class="col-sm-12 col-md-12 mb-5">
 						<h2 class="section-heading text-center text-primary no-after mb-5">
@@ -77,44 +71,42 @@
 						</h2>
 						<p class="subheading text-center"></p>
 					</div>
-
 					<div class="col-12 col-sm-12 col-md-12">
-						<form class="form-contact contact-form" form-id="form_001" id="email_form">
+						<form class="form-contact contact-form" form-id="form_001" id="email_form" action>
 							<div class="row">
 								<div class="col-sm-6 col-md-6">
 									<div class="form-group">
 										<input type="text" name="name" class="form-control" placeholder="Enter Name"
-											required="">
-										<div class="help-block with-errors"></div>
+											required>
 									</div>
 								</div>
 								<div class="col-sm-6 col-md-6">
 									<div class="form-group">
 										<input type="email" name="email" class="form-control" placeholder="Enter Email"
-											required="">
-										<div class="help-block with-errors"></div>
+											required>
 									</div>
 								</div>
 								<div class="col-sm-6 col-md-6">
 									<div class="form-group">
-										<input type="text" name="subject" class="form-control" placeholder="Subject">
-										<div class="help-block with-errors"></div>
+										<input type="text" name="subject" class="form-control" placeholder="Subject"
+											required>
 									</div>
 								</div>
 								<div class="col-sm-6 col-md-6">
 									<div class="form-group">
-										<input type="text" name="mobile" class="form-control"
-											placeholder="Enter Phone Number">
-										<div class="help-block with-errors"></div>
+										<input type="text" name="mobile" class="form-control" pattern="[0-9]{10}"
+											placeholder="Mobile Number" required maxlength="10" minlength="10"
+											oninvalid="this.setCustomValidity('Please enter valid mobile number.')"
+											oninput="this.setCustomValidity('')">
+										>
 									</div>
 								</div>
 							</div>
 							<div class="form-group">
-								<textarea name="text" class="form-control" rows="10"
-									placeholder="Enter Your Message"></textarea>
-								<div class="help-block with-errors"></div>
+								<textarea name="text" class="form-control" rows="10" placeholder="Enter Your Message"
+									required></textarea>
 							</div>
-							<div class="form-group">
+							<div class="form-group mt-5">
 								<div class="text-center">
 									<div id="success"></div>
 									<button id="submit_form" name="send" type="submit" class="btn btn-primary">SEND
@@ -124,13 +116,10 @@
 						</form>
 					</div>
 				</div>
-
 			</div>
 		</div>
 	</div>
-
 	<div data-include="footer"></div>
-
 	<div class="modal fade" id="successModal" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel">
 		<div class="modal-dialog modal-sm" role="document">
 			<div class="modal-content">
@@ -142,7 +131,6 @@
 			</div>
 		</div>
 	</div>
-
 	<div class="modal fade" id="failedModal" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel">
 		<div class="modal-dialog modal-sm" role="document">
 			<div class="modal-content">
@@ -154,43 +142,22 @@
 			</div>
 		</div>
 	</div>
-
 	<!-- JS VENDOR -->
 	<script src="js/vendor/jquery.min.js"></script>
+	<!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validate/1.19.5/jquery.validate.min.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validate/1.19.5/additional-methods.min.js"></script> -->
 	<script src="js/vendor/popper.min.js"></script>
 	<script src="js/vendor/bootstrap.min.js"></script>
 	<script src="js/vendor/owl.carousel.js"></script>
 	<script src="js/vendor/jquery.magnific-popup.min.js"></script>
 	<script src="js/script.js"></script>
-
 	<script>
 		var form_id = "email_form";
 		var sendButton = $("#" + form_id + " [name='send']");
 		var data = {
-			// "access_token": "tlgb95i7ycryjs1ddu5yqf1j" 
-			"access_token": "lbftyvqlbdrqvs0tcldd4ufp"
 		};
-
-		function onSuccess() {
-			$('#successModal').modal('show', setTimeout(function () {
-				$('#successModal').modal('hide');
-			}, 5000));
-			// remove this to avoid redirect
-			// window.location = window.location.pathname + "?message=Email+Successfully+Sent%21&isError=0";
-		}
-		function onError(error) {
-			$('#failedModal').modal('show', setTimeout(function () {
-				$('#failedModal').modal('hide');
-			}, 5000));
-			// remove this to avoid redirect
-			// window.location = window.location.pathname + "?message=Email+could+not+be+sent.&isError=1";
-		}
-
-
 		function send() {
-			sendButton.val('Sending…');
 			sendButton.prop('disabled', true);
-
 			var subject = $("#" + form_id + " [name='subject']").val();
 			var name = $("#" + form_id + " [name='name']").val();
 			var email = $("#" + form_id + " [name='email']").val();
@@ -201,20 +168,14 @@
 				+ "Email: " + email + "\n"
 				+ "Mobile: " + mobile + "\n"
 				+ "Message: " + message;
-
-			$.post('https://postmail.invotes.com/send',
-				data,
-				onSuccess
-			).fail(onError);
-
-			return false;
+			sendMail(data);
+			sendButton.prop('disabled', false);
 		}
-
-		sendButton.on('click', send);
-
-		var $form = $("#" + form_id);
-		$form.submit(function (event) {
+		// sendButton.on('click', send);
+		var form = $("#" + form_id);
+		form.submit(function (event) {
 			event.preventDefault();
+			send();
 		});
 	</script>
 </body>
