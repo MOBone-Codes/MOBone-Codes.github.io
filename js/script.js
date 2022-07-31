@@ -230,7 +230,7 @@ function onError(error) {
 }
 
 function sendMail(data) {
-  data["access_token"] = prabhuEmailToken;
+  data["access_token"] = moboneEmailToken;
   // alert(JSON.stringify(data));
   $.post('https://postmail.invotes.com/send',
     data,
