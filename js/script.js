@@ -213,3 +213,30 @@ function setWhatsapp(id) {
     );
   }
 }
+
+function onSuccess() {
+  $('#successModal').modal('show', setTimeout(function () {
+    $('#successModal').modal('hide');
+  }, 5000));
+  // remove this to avoid redirect
+  // window.location = window.location.pathname + "?message=Email+Successfully+Sent%21&isError=0";
+}
+function onError(error) {
+  $('#failedModal').modal('show', setTimeout(function () {
+    $('#failedModal').modal('hide');
+  }, 5000));
+  // remove this to avoid redirect
+  // window.location = window.location.pathname + "?message=Email+could+not+be+sent.&isError=1";
+}
+
+function sendMail(data) {
+  data["access_token"] = moboneEmailToken;
+  // alert(JSON.stringify(data));
+  $.post('https://postmail.invotes.com/send',
+    data,
+    onSuccess
+  ).fail(onError);
+}
+
+var prabhuEmailToken = "tlgb95i7ycryjs1ddu5yqf1j" //PRABHU
+var moboneEmailToken = "lbftyvqlbdrqvs0tcldd4ufp" //MOBONE
