@@ -10,7 +10,7 @@
 	<title>MOBone - A species appropriate diet for Dogs</title>
 	<meta name="description" content="MOBone is responsibly sourced and the package is 100% eco-friendly.">
 	<meta name="keywords" content="">
-	<meta http-equiv="last-modified" content="Tue, 28 Sep 2021 00:00:00 GMT " />
+	<meta http-equiv="last-modified" content="Fri, 16 Sep 2022 00:00:00 GMT " />
 	<meta http-equiv="cache-control" content="Private" />
 	<meta http-equiv="Expires" content="600" />
 	<!-- ==============================================
@@ -22,10 +22,7 @@
 	=============================================== -->
 	<link rel="stylesheet" type="text/css" href="css/vendor/bootstrap.min.css" />
 	<link rel="stylesheet" type="text/css" href="css/vendor/font-awesome.min.css">
-	<link rel="stylesheet" type="text/css" href="css/vendor/owl.carousel.min.css">
-	<link rel="stylesheet" type="text/css" href="css/vendor/owl.theme.default.min.css">
 	<link rel="stylesheet" type="text/css" href="css/vendor/magnific-popup.css">
-	<link rel="stylesheet" type="text/css" href="css/vendor/animate.min.css">
 	<link rel="stylesheet" type="text/css" href="css/vendor/font-awesome-animation.min.css">
 	<!-- ==============================================
 	Custom Stylesheet
@@ -120,7 +117,7 @@
 	</div>
 	<div data-include="footer"></div>
 	<div class="modal fade" id="successModal" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel">
-		<div class="modal-dialog modal-sm" role="document">
+		<div class="modal-dialog modal-md" role="document">
 			<div class="modal-content">
 				<div class="modal-body">
 					<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span
@@ -131,7 +128,7 @@
 		</div>
 	</div>
 	<div class="modal fade" id="failedModal" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel">
-		<div class="modal-dialog modal-sm" role="document">
+		<div class="modal-dialog modal-md" role="document">
 			<div class="modal-content">
 				<div class="modal-body">
 					<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span
@@ -157,7 +154,7 @@
 		};
 		function send() {
 			sendButton.prop('disabled', true);
-			var subject = $("#" + form_id + " [name='subject']").val();
+			var subject = "Contact Request: " + $("#" + form_id + " [name='subject']").val();
 			var name = $("#" + form_id + " [name='name']").val();
 			var email = $("#" + form_id + " [name='email']").val();
 			var mobile = $("#" + form_id + " [name='mobile']").val();
@@ -170,7 +167,6 @@
 			sendMail(data);
 			sendButton.prop('disabled', false);
 		}
-		// sendButton.on('click', send);
 		var form = $("#" + form_id);
 		form.submit(function (event) {
 			event.preventDefault();
