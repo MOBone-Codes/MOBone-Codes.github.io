@@ -89,7 +89,6 @@ $(document).ready(function () {
       ocBgColor = e.find("img").attr("bg-color");
     e.css({ "background-image": "url(" + ocImg + ")" });
     e.css({ "background-color": ocBgColor });
-    console.log("tes " + ocImg);
   });
 
   slides.owlCarousel({
@@ -117,9 +116,14 @@ $(document).ready(function () {
     autoplayHoverPause: true,
     loop: true,
     animateIn: "fadeIn",
-    animateOut: "fadeOut",
+    animateOut: "rollOut",
     pagination: false,
-    dots: true,
+    nav: true,
+    navText: [
+      "<span class='fa fa-chevron-left'></span>",
+      "<span class='fa fa-chevron-right'></span>",
+    ],
+    dots: false,
   });
 
   /* =================================
@@ -221,7 +225,7 @@ function onSuccess() {
   // remove this to avoid redirect
   // window.location = window.location.pathname + "?message=Email+Successfully+Sent%21&isError=0";
 }
-function onError(error) {
+function onError() {
   $('#failedModal').modal('show', setTimeout(function () {
     $('#failedModal').modal('hide');
   }, 5000));
@@ -230,13 +234,27 @@ function onError(error) {
 }
 
 function sendMail(data) {
-  data["access_token"] = moboneEmailToken;
   // alert(JSON.stringify(data));
-  $.post('https://postmail.invotes.com/send',
-    data,
-    onSuccess
-  ).fail(onError);
-}
+  var myHeaders = new Headers();
+  myHeaders.append("Content-Type", "application/json");
+  myHeaders.append("X-Api-Key", moboneEmailToken);
 
+  var requestOptions = {
+    method: 'POST',
+    headers: myHeaders,
+    body: JSON.stringify(data),
+    redirect: 'follow'
+  };
+
+  fetch("https://3se661yswe.execute-api.ap-south-1.amazonaws.com/default/notify", requestOptions)
+    .then(response => response.text())
+    .then(result => {
+      console.log(result);
+      onSuccess();
+    })
+    .catch(error => onError);
+
+}
+//'Content-Type,X-Amz-Date,Authorization,X-Api-Key,X-Amz-Security-Token'
 var prabhuEmailToken = "tlgb95i7ycryjs1ddu5yqf1j" //PRABHU
 var moboneEmailToken = "lbftyvqlbdrqvs0tcldd4ufp" //MOBONE

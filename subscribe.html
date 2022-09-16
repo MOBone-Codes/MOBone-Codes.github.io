@@ -10,7 +10,7 @@
 	<title>MOBone - A species appropriate diet for Dogs</title>
 	<meta name="description" content="MOBone is responsibly sourced and the package is 100% eco-friendly.">
 	<meta name="keywords" content="">
-	<meta http-equiv="last-modified" content="Tue, 28 Sep 2021 00:00:00 GMT " />
+	<meta http-equiv="last-modified" content="Fri, 16 Sep 2022 00:00:00 GMT " />
 	<meta http-equiv="cache-control" content="Private" />
 	<meta http-equiv="Expires" content="600" />
 	<!-- ==============================================
@@ -22,10 +22,7 @@
 	=============================================== -->
 	<link rel="stylesheet" type="text/css" href="css/vendor/bootstrap.min.css" />
 	<link rel="stylesheet" type="text/css" href="css/vendor/font-awesome.min.css">
-	<link rel="stylesheet" type="text/css" href="css/vendor/owl.carousel.min.css">
-	<link rel="stylesheet" type="text/css" href="css/vendor/owl.theme.default.min.css">
 	<link rel="stylesheet" type="text/css" href="css/vendor/magnific-popup.css">
-	<link rel="stylesheet" type="text/css" href="css/vendor/animate.min.css">
 	<link rel="stylesheet" type="text/css" href="css/vendor/font-awesome-animation.min.css">
 	<!-- ==============================================
 	Custom Stylesheet
@@ -127,7 +124,7 @@
 								<div class="col-sm-6 col-md-6">
 									<div class="form-group">
 										<input type="text" name="ownerMobile" class="form-control" pattern="[0-9]{10}"
-											placeholder="Mobile Number" required  maxlength="10" minlength="10"
+											placeholder="Mobile Number" required maxlength="10" minlength="10"
 											oninvalid="this.setCustomValidity('Please enter valid mobile number.')"
 											oninput="this.setCustomValidity('')">
 									</div>
@@ -177,7 +174,7 @@
 	</div>
 	<div data-include="footer"></div>
 	<div class="modal fade" id="successModal" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel">
-		<div class="modal-dialog modal-sm" role="document">
+		<div class="modal-dialog modal-md" role="document">
 			<div class="modal-content">
 				<div class="modal-body">
 					<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span
@@ -188,7 +185,7 @@
 		</div>
 	</div>
 	<div class="modal fade" id="failedModal" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel">
-		<div class="modal-dialog modal-sm" role="document">
+		<div class="modal-dialog modal-md" role="document">
 			<div class="modal-content">
 				<div class="modal-body">
 					<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span
@@ -222,7 +219,7 @@
 			var ownerEmail = $("#" + form_id + " [name='ownerEmail']").val();
 			var ownerMobile = $("#" + form_id + " [name='ownerMobile']").val();
 			var ownerAddress = $("#" + form_id + " [name='ownerAddress']").val();
-			data['subject'] = "Subscription Requested by " + owner + " for Pet " + petName;
+			data['subject'] = "Subscription Request: " + owner + " for Pet " + petName;
 			data['text'] = "petName: " + petName + "\n"
 				+ "petAge: " + petAge + "\n"
 				+ "petWeight: " + petWeight + "\n"
