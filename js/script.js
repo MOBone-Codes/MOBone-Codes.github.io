@@ -233,11 +233,11 @@ function onError() {
   // window.location = window.location.pathname + "?message=Email+could+not+be+sent.&isError=1";
 }
 
-function sendMail(data) {
+function sendMail(data, emailType) {
   // alert(JSON.stringify(data));
   var myHeaders = new Headers();
   myHeaders.append("Content-Type", "application/json");
-  myHeaders.append("X-Api-Key", moboneEmailToken);
+  myHeaders.append("X-Api-Key", tokenKeys.get(emailType));
 
   var requestOptions = {
     method: 'POST',
@@ -255,6 +255,13 @@ function sendMail(data) {
     .catch(error => onError);
 
 }
+
+const tokenKeys = new Map();
+
+tokenKeys.set('contactEmail', "97B54C2CEAD52824759A6EA7EA1DA");
+tokenKeys.set('serveTheStraysEmail', "25CF6311DE4464C5B7617D7652F71");
+tokenKeys.set('subscriptionEmail', "25CF6311DE4464C5B7617D7652F71");
+tokenKeys.set('freeSampleEmail', "97B54C2CEAD52824759A6EA7EA1DA");
 //'Content-Type,X-Amz-Date,Authorization,X-Api-Key,X-Amz-Security-Token'
 var prabhuEmailToken = "tlgb95i7ycryjs1ddu5yqf1j" //PRABHU
 var moboneEmailToken = "lbftyvqlbdrqvs0tcldd4ufp" //MOBONE
