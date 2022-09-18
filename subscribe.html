@@ -230,7 +230,7 @@
 				+ "ownerEmail: " + ownerEmail + "\n"
 				+ "ownerMobile: " + ownerMobile + "\n"
 				+ "ownerAddress: " + ownerAddress + "\n";
-			sendMail(data);
+			sendMail(data, "subscriptionEmail");
 			sendButton.prop('disabled', false);
 		}
 		var $form = $("#" + form_id);
