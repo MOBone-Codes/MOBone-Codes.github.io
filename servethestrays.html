@@ -37,6 +37,7 @@
 	<script type="text/javascript" src="//wurfl.io/wurfl.js"></script>
 	<script type="text/javascript"
 		src="//platform-api.sharethis.com/js/sharethis.js#property=6156bc53370144001a899495&product=custom-share-buttons"></script>
+	<script src="https://www.google.com/recaptcha/api.js?onload=onloadCallback&render=explicit" async defer>	</script>
 </head>
 
 <body>
@@ -169,8 +170,9 @@
 											</div>
 											<div class="col-sm-6 col-md-6">
 												<input type="text" name="volunteerPincode" class="form-control"
-													placeholder="Pincode" pattern="[0-9]{6}" maxlength="6" minlength="6"
-													oninvalid="this.setCustomValidity('Please enter valid mobile number.')"
+													placeholder="Pincode" maxlength="6" minlength="6"
+													onkeypress="if ( isNaN( String.fromCharCode(event.keyCode) )) return false;"
+													oninvalid="this.setCustomValidity('Please enter valid pincode')"
 													oninput="this.setCustomValidity('')" required>
 											</div>
 										</div>
@@ -198,7 +200,7 @@
 							</div>
 							<div class="form-group mt-5">
 								<div class="text-center">
-									<div id="success"></div>
+									<div id="g-recaptcha-id"></div>
 									<button id="submit_form" name="send" type="submit"
 										class="btn btn-primary">Submit</button>
 								</div>
@@ -223,6 +225,17 @@
 			</div>
 		</div>
 	</div>
+	<div class="modal fade" id="failedCaptchaModal" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel">
+		<div class="modal-dialog modal-md" role="document">
+			<div class="modal-content">
+				<div class="modal-body">
+					<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span
+							aria-hidden="true">&times;</span></button>
+					<h4 class="modal-title" style="color: #f7941d;">Please Validate the captcha</h4>
+				</div>
+			</div>
+		</div>
+	</div>
 	<div class="modal fade" id="failedModal" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel">
 		<div class="modal-dialog modal-md" role="document">
 			<div class="modal-content">
@@ -241,6 +254,13 @@
 	<script src="js/vendor/owl.carousel.js"></script>
 	<script src="js/vendor/jquery.magnific-popup.min.js"></script>
 	<script src="js/script.js"></script>
+	<script type="text/javascript">
+		var onloadCallback = function () {
+			grecaptcha.render('g-recaptcha-id', {
+				'sitekey': '6LfdTI4jAAAAAH3vX5X857NNVl2Qkre58XCsUknX'
+			});
+		};
+	</script>
 	<script>
 
 		// $('[data-mobone-yes]').bind('input', function () {
@@ -270,33 +290,40 @@
 		var data = {
 		};
 		function send() {
-			sendButton.prop('disabled', true);
-			var isNewFeeder = $("#" + form_id + " [name='stsq1']").val();
-			var alreadyFeedFood = $("#" + form_id + " [name='stsq2']").val();
-			var isNewVolunteer = $("#" + form_id + " [name='stsq3']").val();
-			var volunteerName = $("#" + form_id + " [name='volunteerName']").val();
-			var volunteerMobile = $("#" + form_id + " [name='volunteerMobile']").val();
-			var dogsPlanned = $("#" + form_id + " [name='stsq4']").val();
-			var kitchen = $("#" + form_id + " [name='stsq5']").val();
-			var volunteerArea = $("#" + form_id + " [name='volunteerArea']").val();
-			var volunteerPincode = $("#" + form_id + " [name='volunteerPincode']").val();
-			var isNGOMember = $("#" + form_id + " [name='stsq6']").val();
-			var ngoName = $("#" + form_id + " [name='volunteerNGO']").val();
-			data['subject'] = "ServeTheStrays Request: " + volunteerName + "," + volunteerArea + "-" + volunteerPincode;
-			data['text'] =
-				"Is this the first time you are feeding for the strays?: " + isNewFeeder + "\n"
-				+ "If NO, what do you feed?: " + (alreadyFeedFood ? alreadyFeedFood : "") + "\n"
-				+ "Is this the first time you are volunteering #ServeTheStrays: " + isNewVolunteer + "\n"
-				+ "Volunteer Name: " + volunteerName + "\n"
-				+ "Volunteer Mobile: " + volunteerMobile + "\n"
-				+ "How many dogs do you plan to serve?: " + dogsPlanned + "\n"
-				+ "Do you have kitchen setup to prepare the meals for dogs?: " + kitchen + "\n"
-				+ "Volunteer Area: " + volunteerArea + "\n"
-				+ "volunteer Pincode: " + volunteerPincode + "\n"
-				+ "Are you part of any NGO?: " + isNGOMember + "\n"
-				+ "If YES, Name of the NGO: " + ngoName + "\n";
-			sendMail(data, "serveTheStraysEmail");
-			sendButton.prop('disabled', false);
+			var token = grecaptcha.getResponse();
+			if (token) {
+				sendButton.prop('disabled', true);
+				var isNewFeeder = $("#" + form_id + " [name='stsq1']").val();
+				var alreadyFeedFood = $("#" + form_id + " [name='stsq2']").val();
+				var isNewVolunteer = $("#" + form_id + " [name='stsq3']").val();
+				var volunteerName = $("#" + form_id + " [name='volunteerName']").val();
+				var volunteerMobile = $("#" + form_id + " [name='volunteerMobile']").val();
+				var dogsPlanned = $("#" + form_id + " [name='stsq4']").val();
+				var kitchen = $("#" + form_id + " [name='stsq5']").val();
+				var volunteerArea = $("#" + form_id + " [name='volunteerArea']").val();
+				var volunteerPincode = $("#" + form_id + " [name='volunteerPincode']").val();
+				var isNGOMember = $("#" + form_id + " [name='stsq6']").val();
+				var ngoName = $("#" + form_id + " [name='volunteerNGO']").val();
+				data['subject'] = "ServeTheStrays Request: " + volunteerName + "," + volunteerArea + "-" + volunteerPincode;
+				data['text'] =
+					"Is this the first time you are feeding for the strays?: " + isNewFeeder + "\n"
+					+ "If NO, what do you feed?: " + (alreadyFeedFood ? alreadyFeedFood : "") + "\n"
+					+ "Is this the first time you are volunteering #ServeTheStrays: " + isNewVolunteer + "\n"
+					+ "Volunteer Name: " + volunteerName + "\n"
+					+ "Volunteer Mobile: " + volunteerMobile + "\n"
+					+ "How many dogs do you plan to serve?: " + dogsPlanned + "\n"
+					+ "Do you have kitchen setup to prepare the meals for dogs?: " + kitchen + "\n"
+					+ "Volunteer Area: " + volunteerArea + "\n"
+					+ "volunteer Pincode: " + volunteerPincode + "\n"
+					+ "Are you part of any NGO?: " + isNGOMember + "\n"
+					+ "If YES, Name of the NGO: " + ngoName + "\n";
+				sendMail(data, "serveTheStraysEmail");
+				sendButton.prop('disabled', false);
+			} else {
+				$('#failedCaptchaModal').modal('show', setTimeout(function () {
+					$('#failedCaptchaModal').modal('hide');
+				}, 5000));
+			}
 
 		}
 		// sendButton.on('click', send);

@@ -3768,42 +3768,8 @@ div#footer-whatsapp {
 }
 
 .popup-image {
-  width: 40vw;
-  height: auto;
-}
-
-@media (max-width: 1399.98px) {
-  .popup-image {
-    width: 45vw;
-  }
-}
-@media (max-width: 1399.98px) {
-  .popup-image {
-    width: 45vw;
-  }
-}
-
-@media (max-width: 1199.98px) {
-  .popup-image {
-    width: 50vw;
-  }
-}
-@media (max-width: 991.98px) {
-  .popup-image {
-    width: 60vw;
-  }
-}
-
-@media (max-width: 767.98px) {
-  .popup-image {
-    width: 75vw;
-  }
-}
-
-@media (max-width: 575.98px) {
-  .popup-image {
-    width: 80vw;
-  }
+  max-height: 75vh;
+  max-width: 85vw;
 }
 
 .close_popup {
@@ -4095,6 +4061,6 @@ input::-webkit-inner-spin-button {
 }
 
 /* Firefox */
-input[type=number] {
+input[type="number"] {
   -moz-appearance: textfield;
 }
