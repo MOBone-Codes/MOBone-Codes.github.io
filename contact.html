@@ -39,6 +39,7 @@
 		src="//platform-api.sharethis.com/js/sharethis.js#property=6156bc53370144001a899495&product=custom-share-buttons"></script>
 	<!-- Google tag (gtag.js) -->
 	<script async src="https://www.googletagmanager.com/gtag/js?id=G-Z72MQSE97Q"></script>
+	<script src="https://www.google.com/recaptcha/api.js?onload=onloadCallback&render=explicit" async defer>	</script>
 	<script>
 		window.dataLayer = window.dataLayer || [];
 		function gtag() { dataLayer.push(arguments); }
@@ -99,7 +100,8 @@
 								</div>
 								<div class="col-sm-6 col-md-6">
 									<div class="form-group">
-										<input type="text" name="mobile" class="form-control" pattern="[0-9]{10}"
+										<input type="text" name="mobile" class="form-control"
+											onkeypress="if ( isNaN( String.fromCharCode(event.keyCode) )) return false;"
 											placeholder="Mobile Number" required maxlength="10" minlength="10"
 											oninvalid="this.setCustomValidity('Please enter valid mobile number.')"
 											oninput="this.setCustomValidity('')">
@@ -112,7 +114,7 @@
 							</div>
 							<div class="form-group mt-5">
 								<div class="text-center">
-									<div id="success"></div>
+									<div id="g-recaptcha-id"></div>
 									<button id="submit_form" name="send" type="submit" class="btn btn-primary">SEND
 										MESSAGE</button>
 								</div>
@@ -131,6 +133,17 @@
 					<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span
 							aria-hidden="true">&times;</span></button>
 					<h4 class="modal-title">Email Message Successfully Sent</h4>
+				</div>
+			</div>
+		</div>
+	</div>
+	<div class="modal fade" id="failedCaptchaModal" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel">
+		<div class="modal-dialog modal-md" role="document">
+			<div class="modal-content">
+				<div class="modal-body">
+					<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span
+							aria-hidden="true">&times;</span></button>
+					<h4 class="modal-title" style="color: #f7941d;">Please Validate the captcha</h4>
 				</div>
 			</div>
 		</div>
@@ -155,25 +168,39 @@
 	<script src="js/vendor/owl.carousel.js"></script>
 	<script src="js/vendor/jquery.magnific-popup.min.js"></script>
 	<script src="js/script.js"></script>
+	<script type="text/javascript">
+		var onloadCallback = function () {
+			grecaptcha.render('g-recaptcha-id', {
+				'sitekey': '6LfdTI4jAAAAAH3vX5X857NNVl2Qkre58XCsUknX'
+			});
+		};
+	</script>
 	<script>
 		var form_id = "email_form";
 		var sendButton = $("#" + form_id + " [name='send']");
 		var data = {
 		};
 		function send() {
-			sendButton.prop('disabled', true);
-			var subject = "Contact Request: " + $("#" + form_id + " [name='subject']").val();
-			var name = $("#" + form_id + " [name='name']").val();
-			var email = $("#" + form_id + " [name='email']").val();
-			var mobile = $("#" + form_id + " [name='mobile']").val();
-			var message = $("#" + form_id + " [name='text']").val();
-			data['subject'] = subject;
-			data['text'] = "Name: " + name + "\n"
-				+ "Email: " + email + "\n"
-				+ "Mobile: " + mobile + "\n"
-				+ "Message: " + message;
-			sendMail(data, "contactEmail");
-			sendButton.prop('disabled', false);
+			var token = grecaptcha.getResponse();
+			if (token) {
+				sendButton.prop('disabled', true);
+				var subject = "Contact Request: " + $("#" + form_id + " [name='subject']").val();
+				var name = $("#" + form_id + " [name='name']").val();
+				var email = $("#" + form_id + " [name='email']").val();
+				var mobile = $("#" + form_id + " [name='mobile']").val();
+				var message = $("#" + form_id + " [name='text']").val();
+				data['subject'] = subject;
+				data['text'] = "Name: " + name + "\n"
+					+ "Email: " + email + "\n"
+					+ "Mobile: " + mobile + "\n"
+					+ "Message: " + message;
+				sendMail(data, "contactEmail");
+				sendButton.prop('disabled', false);
+			} else {
+				$('#failedCaptchaModal').modal('show', setTimeout(function () {
+					$('#failedCaptchaModal').modal('hide');
+				}, 5000));
+			}
 		}
 		var form = $("#" + form_id);
 		form.submit(function (event) {

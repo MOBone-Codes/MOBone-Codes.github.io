@@ -233,6 +233,21 @@ function onError() {
   // window.location = window.location.pathname + "?message=Email+could+not+be+sent.&isError=1";
 }
 
+function validateCaptcha(token) {
+  // var myHeaders = new Headers();
+  // myHeaders.append("Content-Type", "application/json");
+  // var requestOptions = {
+  //   method: 'POST'
+  // };
+  // fetch("https://www.google.com/recaptcha/api/siteverify?secret=test&response=" + token, requestOptions)
+  //   .then(response => response.text())
+  //   .then(result => {
+  //     console.log(result);
+  //     onSuccess();
+  //   })
+  //   .catch(error => onError);
+}
+
 function sendMail(data, emailType) {
   // alert(JSON.stringify(data));
   var myHeaders = new Headers();
