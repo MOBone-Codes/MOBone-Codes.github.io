@@ -14,7 +14,7 @@ $(document).ready(function () {
     } else {
       var file = $(this).data("include") + ".html";
       $(this).load(file, function () {
-        $("#copyright_year").html(new Date().getFullYear());
+        $(".dynamic_year").html(new Date().getFullYear());
         //smooth scroll to top
         $(".cd-top").on("click", function (event) {
           event.preventDefault();
