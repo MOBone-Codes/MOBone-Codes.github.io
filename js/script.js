@@ -26,6 +26,8 @@ $(document).ready(function () {
           );
         });
         setWhatsapp("social_whatsapp");
+        getBannerType();
+
       });
     }
   });
@@ -193,10 +195,7 @@ $(".shop-city-navigate").on("click", (event) => {
   $(".popup-base").toggleClass("hide");
 });
 
-$(".close_popup").on("click", () => {
-  $(".popup").toggleClass("hide");
-  $(".popup-base").toggleClass("hide");
-});
+
 
 $(window).load(function () {
   // PAGE IS FULLY LOADED
@@ -269,6 +268,60 @@ function sendMail(data, emailType) {
     })
     .catch(error => onError);
 
+}
+
+function isDateBetween(startDate, endDate, targetDate) {
+  // Parse the dates to ensure they are valid Date objects
+  startDate = new Date(startDate);
+  endDate = new Date(endDate);
+  targetDate = new Date(targetDate);
+
+  // Check if the target date is between the start and end dates
+  return startDate <= targetDate && targetDate <= endDate;
+}
+function checkisvalidpage(page) {
+  var req = new XMLHttpRequest();
+  req.open('GET', document.location, true);
+  req.send(null);
+  req.onload = function () {
+    var headers = req.getResponseHeader("date");
+    var currentDate = new Date(headers);
+    var currentYear = currentDate.getFullYear();
+
+    if (page == "servethestrays" && !isDateBetween(new Date(currentYear + '/08/01'), new Date(currentYear + '/08/13'), currentDate)) {
+      window.location.href = "/home"
+    }
+
+    if (page == "thanks" && !isDateBetween(new Date(currentYear + '/08/13'), new Date(currentYear + '/08/25'), currentDate)) {
+      window.location.href = "/home"
+    }
+
+  }
+}
+function getBannerType() {
+  var req = new XMLHttpRequest();
+  req.open('GET', document.location, true);
+  req.send(null);
+  req.onload = function () {
+    var headers = req.getResponseHeader("date");
+    var currentDate = new Date(headers);
+    var currentYear = currentDate.getFullYear();
+    if (isDateBetween(new Date(currentYear + '/08/01'), new Date(currentYear + '/08/13'), currentDate)) {
+      $("#bannerContent").html('<a href="./servethestrays"><img class="popup-image" src="./images/mobone/offers/servethestrays_2023.jpg" /></a><a href="#" class="close_popup"></a>')
+      //ServetheStrays
+    } else if (isDateBetween(new Date(currentYear + '/08/13'), new Date(currentYear + '/08/25'), currentDate)) {
+      $("#bannerContent").html('<a href="./thanks"><img class="popup-image" src="./images/mobone/offers/servethestrays_2023.jpg" /></a><a href="#" class="close_popup"></a>')
+      //Thanks
+    } else {
+      $("#bannerContent").html('<a href="./shop"><img class="popup-image" src="./images/mobone/offers/standard.png" /></a><a href="#" class="close_popup"></a>')
+      //Normal
+    }
+
+    $(".close_popup").on("click", () => {
+      $(".popup").toggleClass("hide");
+      $(".popup-base").toggleClass("hide");
+    });
+  }
 }
 
 const tokenKeys = new Map();
