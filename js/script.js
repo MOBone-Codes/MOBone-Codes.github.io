@@ -307,10 +307,10 @@ function getBannerType() {
     var currentDate = new Date(headers);
     var currentYear = currentDate.getFullYear();
     if (isDateBetween(new Date(currentYear + '/08/01'), new Date(currentYear + '/08/13'), currentDate)) {
-      $("#bannerContent").html('<a href="./servethestrays"><img class="popup-image" src="./images/mobone/offers/servethestrays_2023.jpg" /></a><a href="#" class="close_popup"></a>')
+      $("#bannerContent").html('<a href="./servethestrays"><img class="popup-image" src="./images/mobone/offers/servethestrays.jpg" /></a><a href="#" class="close_popup"></a>')
       //ServetheStrays
     } else if (isDateBetween(new Date(currentYear + '/08/13'), new Date(currentYear + '/08/25'), currentDate)) {
-      $("#bannerContent").html('<a href="./thanks"><img class="popup-image" src="./images/mobone/offers/servethestrays_2023.jpg" /></a><a href="#" class="close_popup"></a>')
+      $("#bannerContent").html('<a href="./thanks"><img class="popup-image" src="./images/mobone/offers/servethestrays.jpg" /></a><a href="#" class="close_popup"></a>')
       //Thanks
     } else {
       $("#bannerContent").html('<a href="./shop"><img class="popup-image" src="./images/mobone/offers/standard.png" /></a><a href="#" class="close_popup"></a>')
