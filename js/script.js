@@ -288,11 +288,11 @@ function checkisvalidpage(page) {
     var currentDate = new Date(headers);
     var currentYear = currentDate.getFullYear();
 
-    if (page == "servethestrays" && !isDateBetween(new Date(currentYear + '/08/01'), new Date(currentYear + '/08/13'), currentDate)) {
+    if (page == "servethestrays" && !isDateBetween(new Date(currentYear + '/08/01'), new Date(currentYear + '/08/10'), currentDate)) {
       window.location.href = "/home"
     }
 
-    if (page == "thanks" && !isDateBetween(new Date(currentYear + '/08/13'), new Date(currentYear + '/08/25'), currentDate)) {
+    if (page == "thanks" && !isDateBetween(new Date(currentYear + '/08/10'), new Date(currentYear + '/08/25'), currentDate)) {
       window.location.href = "/home"
     }
 
@@ -306,10 +306,10 @@ function getBannerType() {
     var headers = req.getResponseHeader("date");
     var currentDate = new Date(headers);
     var currentYear = currentDate.getFullYear();
-    if (isDateBetween(new Date(currentYear + '/08/01'), new Date(currentYear + '/08/13'), currentDate)) {
+    if (isDateBetween(new Date(currentYear + '/08/01'), new Date(currentYear + '/08/10'), currentDate)) {
       $("#bannerContent").html('<a href="./gservethestrays"><img class="popup-image" src="./images/mobone/offers/servethestrays.jpg" /></a><a href="#" class="close_popup"></a>')
       //ServetheStrays
-    } else if (isDateBetween(new Date(currentYear + '/08/13'), new Date(currentYear + '/08/25'), currentDate)) {
+    } else if (isDateBetween(new Date(currentYear + '/08/10'), new Date(currentYear + '/08/25'), currentDate)) {
       $("#bannerContent").html('<a href="./thanks"><img class="popup-image" src="./images/mobone/offers/servethestrays.jpg" /></a><a href="#" class="close_popup"></a>')
       //Thanks
     } else {
