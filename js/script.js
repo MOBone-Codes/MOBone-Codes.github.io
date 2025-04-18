@@ -99,7 +99,7 @@ $(document).ready(function () {
     autoplayHoverPause: true,
     loop: true,
     animateIn: "fadeIn",
-    animateOut: "rollOut",
+    animateOut: "fadeOut",
     pagination: false,
     nav: true,
     navText: [
