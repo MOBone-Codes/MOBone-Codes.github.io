@@ -126,14 +126,14 @@
       );
       xCategoriesV2("id=my-categories-37334002");
       Ecwid.init();
-      Ecwid.OnPageLoaded.add(function () {
+      Ecwid.OnPageLoaded.add(function (page) {
         $("#shop_loading").fadeOut();
-        if (window.location.hash && window.location.hash.indexOf("!/c/") >= 0) {
-          $(".popup").toggleClass("hide");
-          $(".popup-base").toggleClass("hide");
+        if (page.categoryId == 0) {
+          $(".popup").removeClass("hide");
+          $(".popup-base").removeClass("hide");
         } else {
-          $(".popup").toggleClass("hide");
-          $(".popup-base").toggleClass("hide");
+          $(".popup").addClass("hide");
+          $(".popup-base").addClass("hide");
         }
       });
     </script>
