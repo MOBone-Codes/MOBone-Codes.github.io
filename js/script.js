@@ -300,7 +300,7 @@ function checkisvalidpage(page) {
         currentDate
       )
     ) {
-      window.location.href = "/home";
+      window.location.href = "/index";
     }
 
     if (
@@ -311,7 +311,7 @@ function checkisvalidpage(page) {
         currentDate
       )
     ) {
-      window.location.href = "/home";
+      window.location.href = "/index";
     }
   };
 }
