@@ -27,7 +27,6 @@ $(document).ready(function () {
         });
         setWhatsapp("social_whatsapp");
         getBannerType();
-
       });
     }
   });
@@ -185,17 +184,14 @@ $(document).ready(function () {
   });
 });
 
-
 $(".shop-city-navigate").on("click", (event) => {
   var cityPage = $("#mobone_city").val();
-  var replaceUrl = window.location.pathname + "#!/" + cityPage
+  var replaceUrl = window.location.pathname + "#!/" + cityPage;
   event.preventDefault();
   window.location.replace(replaceUrl);
   $(".popup").toggleClass("hide");
   $(".popup-base").toggleClass("hide");
 });
-
-
 
 $(window).load(function () {
   // PAGE IS FULLY LOADED
@@ -218,16 +214,22 @@ function setWhatsapp(id) {
 }
 
 function onSuccess() {
-  $('#successModal').modal('show', setTimeout(function () {
-    $('#successModal').modal('hide');
-  }, 5000));
+  $("#successModal").modal(
+    "show",
+    setTimeout(function () {
+      $("#successModal").modal("hide");
+    }, 5000)
+  );
   // remove this to avoid redirect
   // window.location = window.location.pathname + "?message=Email+Successfully+Sent%21&isError=0";
 }
 function onError() {
-  $('#failedModal').modal('show', setTimeout(function () {
-    $('#failedModal').modal('hide');
-  }, 5000));
+  $("#failedModal").modal(
+    "show",
+    setTimeout(function () {
+      $("#failedModal").modal("hide");
+    }, 5000)
+  );
   // remove this to avoid redirect
   // window.location = window.location.pathname + "?message=Email+could+not+be+sent.&isError=1";
 }
@@ -254,20 +256,22 @@ function sendMail(data, emailType) {
   myHeaders.append("X-Api-Key", tokenKeys.get(emailType));
 
   var requestOptions = {
-    method: 'POST',
+    method: "POST",
     headers: myHeaders,
     body: JSON.stringify(data),
-    redirect: 'follow'
+    redirect: "follow",
   };
 
-  fetch("https://3se661yswe.execute-api.ap-south-1.amazonaws.com/default/notify", requestOptions)
-    .then(response => response.text())
-    .then(result => {
+  fetch(
+    "https://3se661yswe.execute-api.ap-south-1.amazonaws.com/default/notify",
+    requestOptions
+  )
+    .then((response) => response.text())
+    .then((result) => {
       console.log(result);
       onSuccess();
     })
-    .catch(error => onError);
-
+    .catch((error) => onError);
 }
 
 function isDateBetween(startDate, endDate, targetDate) {
@@ -281,39 +285,70 @@ function isDateBetween(startDate, endDate, targetDate) {
 }
 function checkisvalidpage(page) {
   var req = new XMLHttpRequest();
-  req.open('GET', document.location, true);
+  req.open("GET", document.location, true);
   req.send(null);
   req.onload = function () {
     var headers = req.getResponseHeader("date");
     var currentDate = new Date(headers);
     var currentYear = currentDate.getFullYear();
 
-    if (page == "servethestrays" && !isDateBetween(new Date(currentYear + '/08/01'), new Date(currentYear + '/08/10'), currentDate)) {
-      window.location.href = "/home"
+    if (
+      page == "servethestrays" &&
+      !isDateBetween(
+        new Date(currentYear + "/08/01"),
+        new Date(currentYear + "/08/10"),
+        currentDate
+      )
+    ) {
+      window.location.href = "/home";
     }
 
-    if (page == "thanks" && !isDateBetween(new Date(currentYear + '/08/10'), new Date(currentYear + '/08/25'), currentDate)) {
-      window.location.href = "/home"
+    if (
+      page == "thanks" &&
+      !isDateBetween(
+        new Date(currentYear + "/08/10"),
+        new Date(currentYear + "/08/25"),
+        currentDate
+      )
+    ) {
+      window.location.href = "/home";
     }
-
-  }
+  };
 }
 function getBannerType() {
   var req = new XMLHttpRequest();
-  req.open('GET', document.location, true);
+  req.open("GET", document.location, true);
   req.send(null);
   req.onload = function () {
     var headers = req.getResponseHeader("date");
     var currentDate = new Date(headers);
     var currentYear = currentDate.getFullYear();
-    if (isDateBetween(new Date(currentYear + '/08/01'), new Date(currentYear + '/08/10'), currentDate)) {
-      $("#bannerContent").html('<a href="./gservethestrays"><img class="popup-image" src="./images/mobone/offers/servethestrays.jpg" /></a><a href="#" class="close_popup"></a>')
+    if (
+      isDateBetween(
+        new Date(currentYear + "/08/01"),
+        new Date(currentYear + "/08/10"),
+        currentDate
+      )
+    ) {
+      $("#bannerContent").html(
+        '<a href="./gservethestrays"><img class="popup-image" src="./images/mobone/offers/servethestrays.jpg" /></a><a href="#" class="close_popup"></a>'
+      );
       //ServetheStrays
-    } else if (isDateBetween(new Date(currentYear + '/08/10'), new Date(currentYear + '/08/25'), currentDate)) {
-      $("#bannerContent").html('<a href="./thanks"><img class="popup-image" src="./images/mobone/offers/servethestrays.jpg" /></a><a href="#" class="close_popup"></a>')
+    } else if (
+      isDateBetween(
+        new Date(currentYear + "/08/10"),
+        new Date(currentYear + "/08/25"),
+        currentDate
+      )
+    ) {
+      $("#bannerContent").html(
+        '<a href="./thanks"><img class="popup-image" src="./images/mobone/offers/servethestrays.jpg" /></a><a href="#" class="close_popup"></a>'
+      );
       //Thanks
     } else {
-      $("#bannerContent").html('<a href="./shop"><img class="popup-image" src="./images/mobone/offers/standard.png" /></a><a href="#" class="close_popup"></a>')
+      $("#bannerContent").html(
+        '<a href="./shop"><img class="popup-image" src="./images/mobone/offers/standard.png" /></a><a href="#" class="close_popup"></a>'
+      );
       //Normal
     }
 
@@ -321,15 +356,15 @@ function getBannerType() {
       $(".popup").toggleClass("hide");
       $(".popup-base").toggleClass("hide");
     });
-  }
+  };
 }
 
 const tokenKeys = new Map();
 
-tokenKeys.set('contactEmail', "97B54C2CEAD52824759A6EA7EA1DA");
-tokenKeys.set('serveTheStraysEmail', "25CF6311DE4464C5B7617D7652F71");
-tokenKeys.set('subscriptionEmail', "25CF6311DE4464C5B7617D7652F71");
-tokenKeys.set('freeSampleEmail', "97B54C2CEAD52824759A6EA7EA1DA");
+tokenKeys.set("contactEmail", "97B54C2CEAD52824759A6EA7EA1DA");
+tokenKeys.set("serveTheStraysEmail", "25CF6311DE4464C5B7617D7652F71");
+tokenKeys.set("subscriptionEmail", "25CF6311DE4464C5B7617D7652F71");
+tokenKeys.set("freeSampleEmail", "97B54C2CEAD52824759A6EA7EA1DA");
 //'Content-Type,X-Amz-Date,Authorization,X-Api-Key,X-Amz-Security-Token'
-var prabhuEmailToken = "tlgb95i7ycryjs1ddu5yqf1j" //PRABHU
-var moboneEmailToken = "lbftyvqlbdrqvs0tcldd4ufp" //MOBONE
+var prabhuEmailToken = "tlgb95i7ycryjs1ddu5yqf1j"; //PRABHU
+var moboneEmailToken = "lbftyvqlbdrqvs0tcldd4ufp"; //MOBONE
