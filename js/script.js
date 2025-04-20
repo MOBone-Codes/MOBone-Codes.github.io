@@ -184,15 +184,6 @@ $(document).ready(function () {
   });
 });
 
-$(".shop-city-navigate").on("click", (event) => {
-  var cityPage = $("#mobone_city").val();
-  var replaceUrl = window.location.pathname + "#!/" + cityPage;
-  event.preventDefault();
-  window.location.replace(replaceUrl);
-  $(".popup").toggleClass("hide");
-  $(".popup-base").toggleClass("hide");
-});
-
 $(window).load(function () {
   // PAGE IS FULLY LOADED
   // FADE OUT YOUR OVERLAYING DIV
@@ -353,8 +344,8 @@ function getBannerType() {
     }
 
     $(".close_popup").on("click", () => {
-      $(".popup").toggleClass("hide");
-      $(".popup-base").toggleClass("hide");
+      $("#base-index-popup").toggleClass("hide");
+      $("#banner-popup").toggleClass("hide");
     });
   };
 }
@@ -365,6 +356,3 @@ tokenKeys.set("contactEmail", "97B54C2CEAD52824759A6EA7EA1DA");
 tokenKeys.set("serveTheStraysEmail", "25CF6311DE4464C5B7617D7652F71");
 tokenKeys.set("subscriptionEmail", "25CF6311DE4464C5B7617D7652F71");
 tokenKeys.set("freeSampleEmail", "97B54C2CEAD52824759A6EA7EA1DA");
-//'Content-Type,X-Amz-Date,Authorization,X-Api-Key,X-Amz-Security-Token'
-var prabhuEmailToken = "tlgb95i7ycryjs1ddu5yqf1j"; //PRABHU
-var moboneEmailToken = "lbftyvqlbdrqvs0tcldd4ufp"; //MOBONE
