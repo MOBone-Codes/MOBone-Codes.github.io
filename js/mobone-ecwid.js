@@ -1,7 +1,7 @@
 // P1
 configCategoryVsCityMap = {
   135216751: "Chennai",
-  135216002: "Banglore",
+  135216002: "Bengaluru",
   135216252: "Hyderabad",
   default: "Chennai",
 };
@@ -18,7 +18,7 @@ configStateVsCategoryMap = {
 //   P2
 configCityVsSKUMap = {
   Chennai: /^\d+$/,
-  Banglore: /^B\d+$/,
+  Bengaluru: /^B\d+$/,
   Hyderabad: /^H\d+$/,
   default: /^\d+$/,
 };
@@ -37,7 +37,7 @@ Ecwid.OnAPILoaded.add(function () {
   //https://docs.ecwid.com/build-apps/storefronts/store-configuration-settings/design-configs
   window.ec.storefront.show_breadcrumbs = false;
   Ecwid.refreshConfig && Ecwid.refreshConfig();
-  updateDefaultStateAndCategory();
+  // updateDefaultStateAndCategory();
 });
 
 Ecwid.OnOrderPlaced.add((order) => {});
@@ -80,13 +80,13 @@ Ecwid.OnPageLoaded.add(function (page) {
 
 Ecwid.init();
 
-function updateDefaultStateAndCategory() {
-  var customerLocation = Ecwid.getVisitorLocation();
-  var defaultCategory =
-    configStateVsCategoryMap[customerLocation.state] ||
-    configStateVsCategoryMap["default"];
+// function updateDefaultStateAndCategory() {
+//   var customerLocation = Ecwid.getVisitorLocation();
+//   var defaultCategory =
+//     configStateVsCategoryMap[customerLocation.state] ||
+//     configStateVsCategoryMap["default"];
   // openCategory(defaultCategory);
-}
+// }
 
 function updateSelectedCity(selectedCategory) {
   var selectedCity =
@@ -103,21 +103,17 @@ function openCategory(category) {
 function showCartMismatchPopup(previousCity, currentCity) {
   //   $("#mobone_cart_alert_text").text("Your Cart is not Empty, Continue shopping in " + previousCity);
   $("#mobone_cart_alert_text").html(
-    "You have added items in your cart. To switch " +
-      currentCity +
-      ", you'll need to empty your cart. <br />" +
-      "You can either empty the cart and continue shopping in " +
-      currentCity +
-      ", " +
-      "or continue shopping in " +
-      previousCity +
-      "."
+      "You have items in your&nbsp;" +
+      '<b style="color:#f7941d">'+previousCity+'</b>' +
+      "&nbsp;cart. To switch to&nbsp;" +
+      '<b style="color:#f7941d">'+currentCity+'</b>' +
+      ", your cart needs to be emptied."
   );
 
   $("#cart-mismatch-popup-switch-to-new").text(
     "Empty Cart & Switch to " + currentCity
   );
-  $("#cart-mismatch-popup-switch-to-old").text("Stay in " + previousCity);
+  $("#cart-mismatch-popup-switch-to-old").text("Continue Shopping in " + previousCity);
   $("#base-shop-popup").removeClass("hide");
   $("#cart-mismatch-popup").removeClass("hide");
 }

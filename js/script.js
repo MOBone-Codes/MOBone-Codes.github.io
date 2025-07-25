@@ -354,5 +354,5 @@ const tokenKeys = new Map();
 
 tokenKeys.set("contactEmail", "97B54C2CEAD52824759A6EA7EA1DA");
 tokenKeys.set("serveTheStraysEmail", "25CF6311DE4464C5B7617D7652F71");
-tokenKeys.set("subscriptionEmail", "25CF6311DE4464C5B7617D7652F71");
-tokenKeys.set("freeSampleEmail", "97B54C2CEAD52824759A6EA7EA1DA");
+tokenKeys.set("subscriptionEmail", "85XU7TVKX884FZ2CR39GWGIOGT19A");
+tokenKeys.set("freeSampleEmail", "K19DBSMH2MEWPS96QV6AOVB6NWGB4");
