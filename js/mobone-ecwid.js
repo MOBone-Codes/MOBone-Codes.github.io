@@ -56,15 +56,15 @@ Ecwid.OnPageSwitch.add(function (page) {
   localStorage.setItem("previousCategory", previousCategory);
   var currentCity = configCategoryVsCityMap[page.categoryId];
 
-//   if (page.type == "CATEGORY" && page.categoryId != previousCategory) {
-//     Ecwid.Cart.get(function (cart) {
-//       if (cart.productsQuantity > 0) {
-//         if (!validateCart(cart, currentCity)) {
-//           showCartMismatchPopup(previousCity, currentCity);
-//         }
-//       }
-//     });
-//   }
+  if (page.type == "CATEGORY" && page.categoryId != previousCategory) {
+    Ecwid.Cart.get(function (cart) {
+      if (cart.productsQuantity > 0) {
+        if (!validateCart(cart, currentCity)) {
+          showCartMismatchPopup(previousCity, currentCity);
+        }
+      }
+    });
+  }
 });
 
 Ecwid.OnPageLoad.add(function () {});
@@ -85,8 +85,7 @@ function updateDefaultStateAndCategory() {
   var defaultCategory =
     configStateVsCategoryMap[customerLocation.state] ||
     configStateVsCategoryMap["default"];
-  openCategory(defaultCategory);
-  console.log("defaultCategory", defaultCategory);
+  // openCategory(defaultCategory);
 }
 
 function updateSelectedCity(selectedCategory) {
@@ -95,9 +94,8 @@ function updateSelectedCity(selectedCategory) {
     configCategoryVsCityMap["default"];
   localStorage.setItem("selectedCity", selectedCity);
   localStorage.setItem("selectedCategory", selectedCategory);
-  console.log("selectedCity", selectedCity);
-  console.log("selectedCategory", selectedCategory);
 }
+
 function openCategory(category) {
   Ecwid.openPage("category", { id: category });
 }
