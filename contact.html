@@ -194,7 +194,7 @@
 					+ "Email: " + email + "\n"
 					+ "Mobile: " + mobile + "\n"
 					+ "Message: " + message;
-				sendMail(data, "contactEmail");
+				sendEMail(data, "contactEmail");
 				sendButton.prop('disabled', false);
 			} else {
 				$('#failedCaptchaModal').modal('show', setTimeout(function () {

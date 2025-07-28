@@ -277,7 +277,7 @@
 					+ "ownerEmail: " + ownerEmail + "\n"
 					+ "ownerMobile: " + ownerMobile + "\n"
 					+ "ownerAddress: " + ownerAddress + "\n";
-				sendMail(data, "subscriptionEmail");
+				sendEMail(data, "subscriptionEmail");
 				sendButton.prop('disabled', false);
 			} else {
 				$('#failedCaptchaModal').modal('show', setTimeout(function () {

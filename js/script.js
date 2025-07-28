@@ -240,7 +240,7 @@ function validateCaptcha(token) {
   //   .catch(error => onError);
 }
 
-function sendMail(data, emailType) {
+function sendEMail(data, emailType) {
   // alert(JSON.stringify(data));
   var myHeaders = new Headers();
   myHeaders.append("Content-Type", "application/json");
@@ -254,7 +254,7 @@ function sendMail(data, emailType) {
   };
 
   fetch(
-    "https://3se661yswe.execute-api.ap-south-1.amazonaws.com/default/notify",
+    "https://0wf72ecrl8.execute-api.ap-south-1.amazonaws.com/prod/v1/email/notify",
     requestOptions
   )
     .then((response) => response.text())

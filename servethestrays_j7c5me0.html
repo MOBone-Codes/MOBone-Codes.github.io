@@ -317,7 +317,7 @@
 					+ "volunteer Pincode: " + volunteerPincode + "\n"
 					+ "Are you part of any NGO?: " + isNGOMember + "\n"
 					+ "If YES, Name of the NGO: " + ngoName + "\n";
-				sendMail(data, "serveTheStraysEmail");
+				sendEMail(data, "serveTheStraysEmail");
 				sendButton.prop('disabled', false);
 			} else {
 				$('#failedCaptchaModal').modal('show', setTimeout(function () {

@@ -260,7 +260,7 @@
 					+ "ownerMobile: " + ownerMobile + "\n"
 					+ "ownerAddress: " + ownerAddress + "\n";
 				+ "pincode: " + pincode + "\n";
-				sendMail(data, "freeSampleEmail")
+				sendEMail(data, "freeSampleEmail")
 				sendButton.prop('disabled', false)
 			} else {
 				$('#failedCaptchaModal').modal('show', setTimeout(function () {
