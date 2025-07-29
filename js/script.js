@@ -244,7 +244,7 @@ function sendEMail(data, emailType) {
   // alert(JSON.stringify(data));
   var myHeaders = new Headers();
   myHeaders.append("Content-Type", "application/json");
-  myHeaders.append("X-Api-Key", tokenKeys.get(emailType));
+  myHeaders.append("x-api-key", tokenKeys.get(emailType));
 
   var requestOptions = {
     method: "POST",
