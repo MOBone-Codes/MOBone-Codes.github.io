@@ -32,7 +32,7 @@
 	Custom JS
 	=============================================== -->
 	<script src="js/vendor/modernizr.min.js"></script>
-	<script disable-devtool-auto-1
+	<script disable-devtool-auto
 		src='https://cdn.jsdelivr.net/npm/disable-devtool@latest/disable-devtool.min.js'></script>
 	<script type="text/javascript" src="//wurfl.io/wurfl.js"></script>
 	<script type="text/javascript"
@@ -181,8 +181,8 @@
 		var data = {
 		};
 		function send() {
-			var token = grecaptcha.getResponse();
-			if (token) {
+			// var token = grecaptcha.getResponse();
+			// if (token) {
 				sendButton.prop('disabled', true);
 				var subject = "Contact Request: " + $("#" + form_id + " [name='subject']").val();
 				var name = $("#" + form_id + " [name='name']").val();
@@ -196,11 +196,11 @@
 					+ "Message: " + message;
 				sendEMail(data, "contactEmail");
 				sendButton.prop('disabled', false);
-			} else {
-				$('#failedCaptchaModal').modal('show', setTimeout(function () {
-					$('#failedCaptchaModal').modal('hide');
-				}, 5000));
-			}
+			// } else {
+			// 	$('#failedCaptchaModal').modal('show', setTimeout(function () {
+			// 		$('#failedCaptchaModal').modal('hide');
+			// 	}, 5000));
+			// }
 		}
 		var form = $("#" + form_id);
 		form.submit(function (event) {

@@ -254,7 +254,7 @@ function sendEMail(data, emailType) {
   };
 
   fetch(
-    "https://0wf72ecrl8.execute-api.ap-south-1.amazonaws.com/prod/v1/email/notify",
+    "https://pmxdgw8nt3.execute-api.ap-south-1.amazonaws.com/prod/v1/email/notify",
     requestOptions
   )
     .then((response) => response.text())
