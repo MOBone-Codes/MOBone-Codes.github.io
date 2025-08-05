@@ -36,6 +36,9 @@ xCategoriesV2("id=my-categories-37334002");
 Ecwid.OnAPILoaded.add(function () {
   //https://docs.ecwid.com/build-apps/storefronts/store-configuration-settings/design-configs
   window.ec.storefront.show_breadcrumbs = false;
+  window.ec.storefront.breadcrumbs_have_home_item = false;
+  // window.ec.storefront.product_list_show_sort_viewas_options = true;
+  // window.ec.storefront.enable_catalog_on_one_page = true;
   Ecwid.refreshConfig && Ecwid.refreshConfig();
   // updateDefaultStateAndCategory();
 });
@@ -67,6 +70,30 @@ Ecwid.OnPageSwitch.add(function (page) {
   }
 });
 
+// var publicToken = Ecwid.getAppPublicToken('my-cool-app');
+// var publicConfig = Ecwid.getAppPublicConfig("client_id");
+// var widgets = Ecwid.getInitializedWidgets();
+// var v3Migration = Ecwid.isStorefrontV3();
+// var lang = Ecwid.getStorefrontLang();
+// var currencyFormat = Ecwid.formatCurrency(12.99);
+// var storeId = Ecwid.getOwnerId()
+// Ecwid.openPage('cart')
+// Ecwid.openPage('category', {'id': 20671017, slug_value: 'rental', 'page': 2});
+
+// Ecwid.Customer.get(function(customer) {
+//   console.log(customer.email);
+// });
+
+// Ecwid.getTrackingConsent();
+
+// Ecwid.Customer.signOut(function(success,error) {
+//   if (success == true) {
+//       console.log("Customer signed out");
+//   } else {
+//       console.log("Signout failed. Error message: " + error);
+//   }
+// });
+
 Ecwid.OnPageLoad.add(function () {});
 
 Ecwid.OnPageLoaded.add(function (page) {
@@ -85,7 +112,7 @@ Ecwid.init();
 //   var defaultCategory =
 //     configStateVsCategoryMap[customerLocation.state] ||
 //     configStateVsCategoryMap["default"];
-  // openCategory(defaultCategory);
+// openCategory(defaultCategory);
 // }
 
 function updateSelectedCity(selectedCategory) {
@@ -103,17 +130,23 @@ function openCategory(category) {
 function showCartMismatchPopup(previousCity, currentCity) {
   //   $("#mobone_cart_alert_text").text("Your Cart is not Empty, Continue shopping in " + previousCity);
   $("#mobone_cart_alert_text").html(
-      "You have items in your&nbsp;" +
-      '<b style="color:#f7941d">'+previousCity+'</b>' +
+    "You have items in your&nbsp;" +
+      '<b style="color:#f7941d">' +
+      previousCity +
+      "</b>" +
       "&nbsp;cart. To switch to&nbsp;" +
-      '<b style="color:#f7941d">'+currentCity+'</b>' +
+      '<b style="color:#f7941d">' +
+      currentCity +
+      "</b>" +
       ", your cart needs to be emptied."
   );
 
   $("#cart-mismatch-popup-switch-to-new").text(
     "Empty Cart & Switch to " + currentCity
   );
-  $("#cart-mismatch-popup-switch-to-old").text("Continue Shopping in " + previousCity);
+  $("#cart-mismatch-popup-switch-to-old").text(
+    "Continue Shopping in " + previousCity
+  );
   $("#base-shop-popup").removeClass("hide");
   $("#cart-mismatch-popup").removeClass("hide");
 }
