@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Redirecting...</title>
+    <script
+      disable-devtool-auto
+      src="https://cdn.jsdelivr.net/npm/disable-devtool@latest/disable-devtool.min.js"
+    ></script>
+    <style>
+      body {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+        margin: 0;
+        font-family: sans-serif;
+        background-color: #f0f0f0;
+        color: #333;
+      }
+      .loader {
+        text-align: center;
+      }
+      .spinner {
+        border: 8px solid rgba(0, 0, 0, 0.1);
+        border-left-color: #333;
+        border-radius: 50%;
+        width: 50px;
+        height: 50px;
+        animation: spin 1s linear infinite;
+        margin: 0 auto 20px;
+      }
+      @keyframes spin {
+        to {
+          transform: rotate(360deg);
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="loader">
+      <div class="spinner"></div>
+      <h1>Redirecting...</h1>
+    </div>
+    <script>
+      function getNgrokUrl() {
+        var myHeaders = new Headers();
+        myHeaders.append("Content-Type", "application/json");
+        myHeaders.append("x-api-key", "your_api_key_here");
+
+        fetch(
+          "https://pmxdgw8nt3.execute-api.ap-south-1.amazonaws.com/prod/v1/register/whatsapp",
+          { headers: myHeaders }
+        )
+          .then((response) => response.json()) // Assuming the response is JSON
+          .then((data) => {
+            if (data.ngrok_url) {
+              window.location.href = data.ngrok_url; // Or .replace() or .assign()
+            } else {
+              // Handle error or show a message
+              window.location.href = "https://mobone.in"; // Fallback URL
+              console.error("Redirection failed or URL not provided:", data);
+            }
+          })
+          .catch((error) => {
+            console.error("Error fetching data:", error);
+            window.location.href = "https://mobone.in"; // Fallback on fetch error
+          });
+      }
+      getNgrokUrl();
+    </script>
+  </body>
+</html>
