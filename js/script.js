@@ -287,7 +287,7 @@ function checkisvalidpage(page) {
       page == "servethestrays" &&
       !isDateBetween(
         new Date(currentYear + "/08/01"),
-        new Date(currentYear + "/08/10"),
+        new Date(currentYear + "/08/11"),
         currentDate
       )
     ) {
@@ -297,7 +297,7 @@ function checkisvalidpage(page) {
     if (
       page == "thanks" &&
       !isDateBetween(
-        new Date(currentYear + "/08/10"),
+        new Date(currentYear + "/08/11"),
         new Date(currentYear + "/08/25"),
         currentDate
       )
@@ -317,7 +317,7 @@ function getBannerType() {
     if (
       isDateBetween(
         new Date(currentYear + "/08/01"),
-        new Date(currentYear + "/08/10"),
+        new Date(currentYear + "/08/11"),
         currentDate
       )
     ) {
@@ -327,7 +327,7 @@ function getBannerType() {
       //ServetheStrays
     } else if (
       isDateBetween(
-        new Date(currentYear + "/08/10"),
+        new Date(currentYear + "/08/11"),
         new Date(currentYear + "/08/25"),
         currentDate
       )
