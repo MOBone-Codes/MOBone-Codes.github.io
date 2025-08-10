@@ -272,7 +272,7 @@ function isDateBetween(startDate, endDate, targetDate) {
   targetDate = new Date(targetDate);
 
   // Check if the target date is between the start and end dates
-  return startDate <= targetDate && targetDate <= endDate;
+  return targetDate >= startDate && targetDate <= endDate;
 }
 function checkisvalidpage(page) {
   var req = new XMLHttpRequest();
@@ -297,7 +297,7 @@ function checkisvalidpage(page) {
     if (
       page == "thanks" &&
       !isDateBetween(
-        new Date(currentYear + "/08/11"),
+        new Date(currentYear + "/08/12"),
         new Date(currentYear + "/08/25"),
         currentDate
       )
@@ -327,7 +327,7 @@ function getBannerType() {
       //ServetheStrays
     } else if (
       isDateBetween(
-        new Date(currentYear + "/08/11"),
+        new Date(currentYear + "/08/12"),
         new Date(currentYear + "/08/25"),
         currentDate
       )
