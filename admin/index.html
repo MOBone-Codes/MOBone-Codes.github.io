@@ -19,9 +19,11 @@
         background-color: #f0f0f0;
         color: #333;
       }
+
       .loader {
         text-align: center;
       }
+
       .spinner {
         border: 8px solid rgba(0, 0, 0, 0.1);
         border-left-color: #333;
@@ -31,6 +33,7 @@
         animation: spin 1s linear infinite;
         margin: 0 auto 20px;
       }
+
       @keyframes spin {
         to {
           transform: rotate(360deg);
@@ -38,6 +41,7 @@
       }
     </style>
   </head>
+
   <body>
     <div class="loader">
       <div class="spinner"></div>
@@ -60,13 +64,13 @@
               window.location.href = data.ngrok_url; // Or .replace() or .assign()
             } else {
               // Handle error or show a message
-              window.location.href = "https://mobone.in"; // Fallback URL
+              window.location.href = "/"; // Fallback URL
               console.error("Redirection failed or URL not provided:", data);
             }
           })
           .catch((error) => {
             console.error("Error fetching data:", error);
-            window.location.href = "https://mobone.in"; // Fallback on fetch error
+            window.location.href = "/"; // Fallback on fetch error
           });
       }
       getNgrokUrl();
