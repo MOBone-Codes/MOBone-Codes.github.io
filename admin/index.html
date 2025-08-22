@@ -52,7 +52,11 @@
         var myHeaders = new Headers();
         myHeaders.append("Content-Type", "application/json");
         myHeaders.append("x-api-key", "sipw62R7nBe8bL22IQMS");
-        myHeaders.append("x-bot-env", "PROD");
+        if (window.location.host == "mobone.in") {
+          myHeaders.append("x-bot-env", "PROD");
+        } else {
+          myHeaders.append("x-bot-env", "DEV");
+        }
 
         fetch(
           "https://pmxdgw8nt3.execute-api.ap-south-1.amazonaws.com/prod/v1/register/whatsapp",
