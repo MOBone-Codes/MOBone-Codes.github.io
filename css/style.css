@@ -3700,133 +3700,6 @@ div#footer-whatsapp {
   padding: 40px 0 20px;
 }
 
-.payment-card {
-  margin-top: 6px;
-}
-
-.payment-title {
-  margin: 0 0 14px;
-}
-
-.payment-grid {
-  row-gap: 14px;
-}
-
-.payment-panel {
-  height: 100%;
-  border-radius: 10px;
-  padding: 16px;
-  border: 1px solid #f0e4d6;
-  box-shadow: 0 8px 18px rgba(34, 34, 34, 0.06);
-}
-
-.payment-panel-bank {
-  background: linear-gradient(160deg, #fff7ee 0%, #ffffff 100%);
-}
-
-.payment-panel-upi {
-  background: linear-gradient(160deg, #ffffff 0%, #fff4e8 100%);
-}
-
-.payment-panel-title {
-  font-size: 20px;
-  margin: 0 0 10px;
-  color: #222222;
-  font-family: "Overlock Bold";
-}
-
-.payment-card .payment-line {
-  margin: 0 0 5px;
-  text-align: left;
-  line-height: 1.45;
-}
-
-.payment-qr-wrap {
-  margin-top: 10px;
-  text-align: center;
-}
-
-.payment-qr-code {
-  width: 186px;
-  min-height: 186px;
-  margin: 0 auto;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  border: 8px solid #fff;
-  border-radius: 12px;
-  box-shadow: 0 8px 20px rgba(34, 34, 34, 0.12);
-  background-color: #fff;
-}
-
-.payment-qr-code img,
-.payment-qr-code canvas {
-  display: block;
-  max-width: 100%;
-  height: auto;
-}
-
-.payment-qr-error {
-  margin: 0;
-  font-size: 13px;
-  color: #bf360c;
-}
-
-.payment-qr-caption {
-  margin: 8px 0 0;
-  text-align: center;
-  font-size: 14px;
-  color: #7d7d7d;
-}
-
-.payment-note-block {
-  margin-top: 14px;
-}
-
-.payment-card .payment-line-note {
-  margin: 0 0 6px;
-  text-align: left;
-  line-height: 1.45;
-  background-color: #f7941d;
-  border-radius: 4px;
-  color: white;
-  padding: 6px 15px;
-}
-
-.payment-card a {
-  color: #f7941d;
-}
-
-.payment-card a:hover {
-  color: #222222;
-}
-
-.footer .payment-card a {
-  color: #fff;
-}
-
-.footer .payment-card a:hover {
-  color: #f7941d;
-}
-
-.payment-page .payment-card {
-  background: #fff;
-  border: 1px solid #ececec;
-  border-top: 3px solid #f7941d;
-  border-radius: 12px;
-  padding: 20px;
-}
-
-@media screen and (max-width: 991px) {
-  .payment-panel-title {
-    font-size: 18px;
-  }
-  .payment-qr-code {
-    width: 170px;
-    min-height: 170px;
-  }
-}
-
 .stiky .sosmed-icon a:hover {
   color: #636362;
   transform: scale(2);
@@ -4204,6 +4077,133 @@ html#ecwid_html
   }
   .header-1 .navbar-main .nav-link {
     padding-left: 5px;
+  }
+}
+
+html#ecwid_html body#ecwid_body .ec-size .ec-store .payment-card {
+  margin-top: 6px;
+}
+
+html#ecwid_html body#ecwid_body .ec-size .ec-store .payment-title {
+  margin: 0 0 14px;
+}
+
+html#ecwid_html body#ecwid_body .ec-size .ec-store .payment-grid {
+  row-gap: 14px;
+}
+
+html#ecwid_html body#ecwid_body .ec-size .ec-store .payment-panel {
+  height: 100%;
+  border-radius: 10px;
+  padding: 16px;
+  border: 1px solid #f0e4d6;
+  box-shadow: 0 8px 18px rgba(34, 34, 34, 0.06);
+}
+
+html#ecwid_html body#ecwid_body .ec-size .ec-store .payment-panel-bank {
+  background: linear-gradient(160deg, #fff7ee 0%, #ffffff 100%);
+  margin-right: 5px;
+}
+
+html#ecwid_html body#ecwid_body .ec-size .ec-store .payment-panel-upi {
+  background: linear-gradient(160deg, #ffffff 0%, #fff4e8 100%);
+   margin-left: 5px;
+}
+
+html#ecwid_html body#ecwid_body .ec-size .ec-store .payment-panel-title {
+  font-size: 20px;
+  margin: 0 0 10px;
+  color: #222222;
+  font-family: "Overlock Bold";
+}
+
+html#ecwid_html body#ecwid_body .ec-size .ec-store .payment-line {
+  margin: 0 0 5px;
+  text-align: left;
+  line-height: 1.45;
+  font-size: 15px;
+}
+
+html#ecwid_html body#ecwid_body .ec-size .ec-store .payment-qr-wrap {
+  margin-top: 10px;
+  text-align: center;
+}
+
+html#ecwid_html body#ecwid_body .ec-size .ec-store .payment-qr-code {
+  width: 186px;
+  min-height: 186px;
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 8px solid #fff;
+  border-radius: 12px;
+  box-shadow: 0 8px 20px rgba(34, 34, 34, 0.12);
+  background-color: #fff;
+}
+
+html#ecwid_html body#ecwid_body .ec-size .ec-store .payment-qr-code img,
+html#ecwid_html body#ecwid_body .ec-size .ec-store .payment-qr-code canvas {
+  display: block;
+  max-width: 100%;
+  height: auto;
+}
+
+html#ecwid_html body#ecwid_body .ec-size .ec-store .payment-qr-error {
+  margin: 0;
+  font-size: 13px;
+  color: #bf360c;
+}
+
+html#ecwid_html body#ecwid_body .ec-size .ec-store .payment-qr-caption {
+  margin: 8px 0 0;
+  padding: 15px;
+  text-align: center;
+  font-size: 14px;
+  color: #7d7d7d;
+}
+
+html#ecwid_html body#ecwid_body .ec-size .ec-store .payment-btn-upi {
+  background-color: #f7941d;
+  color: #fff;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 5px;
+  font-size: 14px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+html#ecwid_html body#ecwid_body .ec-size .ec-store .payment-note-block {
+  margin-top: 14px;
+}
+
+html#ecwid_html body#ecwid_body .ec-size .ec-store .payment-line-note {
+  margin: 0 0 6px;
+  text-align: left;
+  line-height: 1.45;
+  background-color: #f7941d;
+  color: white;
+  font-size: 14px;
+  padding: 6px 10px;
+}
+
+html#ecwid_html body#ecwid_body .ec-size .ec-store .payment-card a {
+  color: #f7941d;
+}
+
+html#ecwid_html body#ecwid_body .ec-size .ec-store .payment-card a:hover {
+  color: #222222;
+}
+
+@media screen and (max-width: 991px) {
+  html#ecwid_html body#ecwid_body .ec-size .ec-store .payment-panel-title {
+    font-size: 18px;
+  }
+
+  html#ecwid_html body#ecwid_body .ec-size .ec-store .payment-qr-code {
+    width: 170px;
+    min-height: 170px;
   }
 }
 

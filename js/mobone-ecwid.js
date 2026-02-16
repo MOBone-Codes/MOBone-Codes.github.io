@@ -138,14 +138,14 @@ function showCartMismatchPopup(previousCity, currentCity) {
       '<b style="color:#f7941d">' +
       currentCity +
       "</b>" +
-      ", your cart needs to be emptied."
+      ", your cart needs to be emptied.",
   );
 
   $("#cart-mismatch-popup-switch-to-new").text(
-    "Empty Cart & Switch to " + currentCity
+    "Empty Cart & Switch to " + currentCity,
   );
   $("#cart-mismatch-popup-switch-to-old").text(
-    "Continue Shopping in " + previousCity
+    "Continue Shopping in " + previousCity,
   );
   $("#base-shop-popup").removeClass("hide");
   $("#cart-mismatch-popup").removeClass("hide");
@@ -218,3 +218,4 @@ function clearCart() {
     }
   });
 }
+

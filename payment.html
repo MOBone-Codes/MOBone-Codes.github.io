@@ -1,67 +1,41 @@
-<!DOCTYPE html>
-<html lang="en">
-
-<head>
-  <meta charset="utf-8" />
-  <!--[if IE]><meta http-equiv="x-ua-compatible" content="IE=9" /><![endif]-->
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Payment Instructions | MOBone</title>
-  <meta name="description" content="Payment instructions for MOBone orders." />
-  <meta name="keywords" content="" />
-
-  <link rel="shortcut icon" href="images/mobone/fav_icon.png" />
-  <link rel="stylesheet" type="text/css" href="css/vendor/bootstrap.min.css" />
-  <link rel="stylesheet" type="text/css" href="css/vendor/font-awesome.min.css" />
-  <link rel="stylesheet" type="text/css" href="css/vendor/magnific-popup.css" />
-  <link rel="stylesheet" type="text/css" href="css/vendor/font-awesome-animation.min.css" />
-  <link rel="stylesheet" type="text/css" href="css/style.css" />
-
-  <script src="js/vendor/modernizr.min.js"></script>
-  <script type="text/javascript" src="//wurfl.io/wurfl.js"></script>
-  <script type="text/javascript"
-    src="//platform-api.sharethis.com/js/sharethis.js#property=6156bc53370144001a899495&product=custom-share-buttons"></script>
-</head>
-
-<body>
-  <div id="loading"></div>
-  <div data-include="header"></div>
-
-  <section class="section payment-page">
-    <div class="content-wrap">
-      <div class="container">
-        <div class="row justify-content-center">
-          <div class="col-12 col-md-10 col-lg-8">
-            <h2 class="section-heading text-primary no-after mb-4 text-center">
-              Payment Instructions
-            </h2>
-            <div id="payment-instruction-root"></div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <div data-include="footer"></div>
-
-  <script src="js/vendor/jquery.min.js"></script>
-  <script src="js/vendor/popper.min.js"></script>
-  <script src="js/vendor/bootstrap.min.js"></script>
-  <script src="js/vendor/owl.carousel.js"></script>
-  <script src="js/vendor/jquery.magnific-popup.min.js"></script>
-  <script src="js/script.js"></script>
-  <script
-    src="https://app.ecwid.com/script.js?37334002&data_platform=code&data_date=2021-10-15"
-    charset="utf-8"
-  ></script>
-  <script src="js/vendor/qrcode.min.js"></script>
-  <script src="js/payment-ecwid.js"></script>
-  <script>
-    $("#payment-instruction-root").load("payment-instruction.html", function () {
-      if (typeof window.initPaymentInstructions === "function") {
-        window.initPaymentInstructions();
-      }
-    });
-  </script>
-</body>
-
-</html>
+<div class="payment-card">
+	<div class="row payment-grid">
+		<div class="col-12 col-lg-6">
+			<div class="payment-panel payment-panel-bank">
+				<h5 class="payment-panel-title">NEFT / Bank Transfer</h5>
+				<p class="payment-line"><strong>Account Name:</strong> PALM PAW FOODS INDIA PVT LTD
+				</p>
+				<p class="payment-line"><strong>Account No.:</strong> 3658 0500 0078
+				</p>
+				<p class="payment-line"><strong>Type:</strong> CURRENT
+				</p>
+				<p class="payment-line"><strong>IFSC:</strong> ICIC0003658
+				</p><br>
+				<h5 class="payment-panel-title">UPI Payment</h5>
+				<p class="payment-line"><strong>UPI ID:</strong> <a id="upi-id-link"
+						href="upi://pay?pa=palmpawfoods@icici&pn=PALM%20PAW%20FOODS%20INDIA%20PVT%20LTD">palmpawfoods@icici</a>
+				</p>
+				<p class="payment-line"><strong>Paytm / GPay for Business:</strong> <a id="upi-id-link-1"
+						href="tel:+919655692559">+91 96556 92559</a>
+				</p>
+				<p style="margin-top: 15px;">
+					<a id="upi-pay-link" class="payment-btn-upi" style="color: white;" href="#">Pay via UPI App</a>
+				</p>
+			</div>
+		</div>
+		<div class="col-12 col-lg-6">
+			<div class="payment-panel payment-panel-upi">
+				<div class="payment-qr-wrap">
+					<img id="upi-qr-code" class="payment-qr-code" src="./images/mobone/mobone_qr.png"
+						alt="UPI QR Code for PALM PAW FOODS INDIA PVT LTD" class="payment-qr-image">
+				</div>
+			</div>
+		</div>
+	</div>
+	<div class="payment-note-block">
+		<p class="payment-line-note"><strong>Note:</strong> Delivery will be scheduled ONLY upon payment confirmation.
+		</p>
+		<p class="payment-line-note">Do mention your order number in the transaction remarks.
+		</p>
+	</div>
+</div>
