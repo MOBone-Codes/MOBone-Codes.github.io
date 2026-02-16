@@ -1,0 +1,33 @@
+<div class="payment-card">
+    <h3 class="payment-title text-primary">Payment Instruction</h3>
+
+    <div class="row payment-grid">
+        <div class="col-12 col-lg-6">
+            <div class="payment-panel payment-panel-bank">
+                <h4 class="payment-panel-title">NEFT / Bank Transfer</h4>
+                <p class="payment-line"><strong>Account Name:</strong> PALM PAW FOODS INDIA PVT LTD</p>
+                <p class="payment-line"><strong>Account No.:</strong> 3658 0500 0078</p>
+                <p class="payment-line"><strong>Type:</strong> CURRENT</p>
+                <p class="payment-line"><strong>IFSC:</strong> ICIC0003658</p><br/>
+                <h4 class="payment-panel-title">UPI Payment</h4>
+                <p class="payment-line"><strong>UPI ID:</strong> <a id="upi-id-link" href="upi://pay?pa=palmpawfoods@icici&pn=PALM%20PAW%20FOODS%20INDIA%20PVT%20LTD">palmpawfoods@icici</a></p>
+                <p class="payment-line"><strong>Paytm / GPay for Business:</strong> <a id="upi-id-link-1" href="tel:+919655692559">+91 96556 92559</a></p>
+                <p class="payment-line"><strong>Cart Total:</strong> <span id="payment-cart-amount">Loading...</span></p>
+            </div>
+        </div>
+        <div class="col-12 col-lg-6">
+            <div class="payment-panel payment-panel-upi">
+                <div class="payment-qr-wrap">
+                    <div id="upi-qr-code" class="payment-qr-code" aria-label="UPI QR Code"></div>
+                    <p class="payment-qr-caption">Scan to pay using any UPI app</p>
+                    <a id="upi-pay-link" class="btn btn-primary btn-sm mt-2" style="color: white;" href="#">Pay via UPI App</a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="payment-note-block">
+        <p class="payment-line-note"><strong>Note:</strong> Delivery will be scheduled ONLY upon payment confirmation.</p>
+        <p class="payment-line-note">Do mention your order number in the transaction remarks.</p>
+    </div>
+</div>

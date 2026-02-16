@@ -63,7 +63,8 @@ Version: 1.0
 @font-face {
   font-family: "sas-webfont";
   src: url("../fonts/sas-webfont.eot");
-  src: url("../fonts/sas-webfont.eot") format("embedded-opentype"),
+  src:
+    url("../fonts/sas-webfont.eot") format("embedded-opentype"),
     url("../fonts/sas-webfont.woff2") format("woff2"),
     url("../fonts/sas-webfont.woff") format("woff"),
     url("../fonts/sas-webfont.ttf") format("truetype"),
@@ -76,7 +77,8 @@ Version: 1.0
   font-family: "Overlock Regular";
   font-style: normal;
   font-weight: normal;
-  src: local("Overlock Regular"),
+  src:
+    local("Overlock Regular"),
     url("../fonts/Overlock-Regular.woff") format("woff");
 }
 
@@ -84,7 +86,8 @@ Version: 1.0
   font-family: "Overlock Italic";
   font-style: normal;
   font-weight: normal;
-  src: local("Overlock Italic"),
+  src:
+    local("Overlock Italic"),
     url("../fonts/Overlock-Italic.woff") format("woff");
 }
 
@@ -92,14 +95,17 @@ Version: 1.0
   font-family: "Overlock Bold";
   font-style: normal;
   font-weight: normal;
-  src: local("Overlock Bold"), url("../fonts/Overlock-Bold.woff") format("woff");
+  src:
+    local("Overlock Bold"),
+    url("../fonts/Overlock-Bold.woff") format("woff");
 }
 
 @font-face {
   font-family: "Overlock Bold Italic";
   font-style: normal;
   font-weight: normal;
-  src: local("Overlock Bold Italic"),
+  src:
+    local("Overlock Bold Italic"),
     url("../fonts/Overlock-BoldItalic.woff") format("woff");
 }
 
@@ -107,7 +113,8 @@ Version: 1.0
   font-family: "Overlock Black";
   font-style: normal;
   font-weight: normal;
-  src: local("Overlock Black"),
+  src:
+    local("Overlock Black"),
     url("../fonts/Overlock-Black.woff") format("woff");
 }
 
@@ -115,7 +122,8 @@ Version: 1.0
   font-family: "Overlock Black Italic";
   font-style: normal;
   font-weight: normal;
-  src: local("Overlock Black Italic"),
+  src:
+    local("Overlock Black Italic"),
     url("../fonts/Overlock-BlackItalic.woff") format("woff");
 }
 
@@ -2528,9 +2536,15 @@ Back To Top Section
   opacity: 0;
   -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=0)";
   filter: alpha(opacity=0);
-  -webkit-transition: opacity 0.3s 0s, visibility 0s 0.3s;
-  -moz-transition: opacity 0.3s 0s, visibility 0s 0.3s;
-  transition: opacity 0.3s 0s, visibility 0s 0.3s;
+  -webkit-transition:
+    opacity 0.3s 0s,
+    visibility 0s 0.3s;
+  -moz-transition:
+    opacity 0.3s 0s,
+    visibility 0s 0.3s;
+  transition:
+    opacity 0.3s 0s,
+    visibility 0s 0.3s;
   -webkit-border-radius: 20px;
   -moz-border-radius: 20px;
   -ms-border-radius: 20px;
@@ -2540,9 +2554,15 @@ Back To Top Section
   opacity: 1;
   -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=100)";
   filter: alpha(opacity=100);
-  -webkit-transition: opacity 0.3s 0s, visibility 0s 0s;
-  -moz-transition: opacity 0.3s 0s, visibility 0s 0s;
-  transition: opacity 0.3s 0s, visibility 0s 0s;
+  -webkit-transition:
+    opacity 0.3s 0s,
+    visibility 0s 0s;
+  -moz-transition:
+    opacity 0.3s 0s,
+    visibility 0s 0s;
+  transition:
+    opacity 0.3s 0s,
+    visibility 0s 0s;
 }
 .cd-top.cd-is-visible {
   visibility: visible;
@@ -3680,6 +3700,133 @@ div#footer-whatsapp {
   padding: 40px 0 20px;
 }
 
+.payment-card {
+  margin-top: 6px;
+}
+
+.payment-title {
+  margin: 0 0 14px;
+}
+
+.payment-grid {
+  row-gap: 14px;
+}
+
+.payment-panel {
+  height: 100%;
+  border-radius: 10px;
+  padding: 16px;
+  border: 1px solid #f0e4d6;
+  box-shadow: 0 8px 18px rgba(34, 34, 34, 0.06);
+}
+
+.payment-panel-bank {
+  background: linear-gradient(160deg, #fff7ee 0%, #ffffff 100%);
+}
+
+.payment-panel-upi {
+  background: linear-gradient(160deg, #ffffff 0%, #fff4e8 100%);
+}
+
+.payment-panel-title {
+  font-size: 20px;
+  margin: 0 0 10px;
+  color: #222222;
+  font-family: "Overlock Bold";
+}
+
+.payment-card .payment-line {
+  margin: 0 0 5px;
+  text-align: left;
+  line-height: 1.45;
+}
+
+.payment-qr-wrap {
+  margin-top: 10px;
+  text-align: center;
+}
+
+.payment-qr-code {
+  width: 186px;
+  min-height: 186px;
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 8px solid #fff;
+  border-radius: 12px;
+  box-shadow: 0 8px 20px rgba(34, 34, 34, 0.12);
+  background-color: #fff;
+}
+
+.payment-qr-code img,
+.payment-qr-code canvas {
+  display: block;
+  max-width: 100%;
+  height: auto;
+}
+
+.payment-qr-error {
+  margin: 0;
+  font-size: 13px;
+  color: #bf360c;
+}
+
+.payment-qr-caption {
+  margin: 8px 0 0;
+  text-align: center;
+  font-size: 14px;
+  color: #7d7d7d;
+}
+
+.payment-note-block {
+  margin-top: 14px;
+}
+
+.payment-card .payment-line-note {
+  margin: 0 0 6px;
+  text-align: left;
+  line-height: 1.45;
+  background-color: #f7941d;
+  border-radius: 4px;
+  color: white;
+  padding: 6px 15px;
+}
+
+.payment-card a {
+  color: #f7941d;
+}
+
+.payment-card a:hover {
+  color: #222222;
+}
+
+.footer .payment-card a {
+  color: #fff;
+}
+
+.footer .payment-card a:hover {
+  color: #f7941d;
+}
+
+.payment-page .payment-card {
+  background: #fff;
+  border: 1px solid #ececec;
+  border-top: 3px solid #f7941d;
+  border-radius: 12px;
+  padding: 20px;
+}
+
+@media screen and (max-width: 991px) {
+  .payment-panel-title {
+    font-size: 18px;
+  }
+  .payment-qr-code {
+    width: 170px;
+    min-height: 170px;
+  }
+}
+
 .stiky .sosmed-icon a:hover {
   color: #636362;
   transform: scale(2);
@@ -3776,7 +3923,7 @@ div#footer-whatsapp {
   width: 30px;
   height: 30px;
   background-size: 100%;
-  background-image: url('/images/mobone/offers/close.png'); /* Ensure the path starts from the root if needed */
+  background-image: url("/images/mobone/offers/close.png"); /* Ensure the path starts from the root if needed */
   position: absolute;
   background-repeat: no-repeat;
   background-position: center;
@@ -3789,7 +3936,6 @@ div#footer-whatsapp {
     top: -2%;
     right: 2%;
   }
-  
 }
 
 .hide {

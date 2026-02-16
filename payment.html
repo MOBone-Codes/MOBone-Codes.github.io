@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8" />
+  <!--[if IE]><meta http-equiv="x-ua-compatible" content="IE=9" /><![endif]-->
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Payment Instructions | MOBone</title>
+  <meta name="description" content="Payment instructions for MOBone orders." />
+  <meta name="keywords" content="" />
+
+  <link rel="shortcut icon" href="images/mobone/fav_icon.png" />
+  <link rel="stylesheet" type="text/css" href="css/vendor/bootstrap.min.css" />
+  <link rel="stylesheet" type="text/css" href="css/vendor/font-awesome.min.css" />
+  <link rel="stylesheet" type="text/css" href="css/vendor/magnific-popup.css" />
+  <link rel="stylesheet" type="text/css" href="css/vendor/font-awesome-animation.min.css" />
+  <link rel="stylesheet" type="text/css" href="css/style.css" />
+
+  <script src="js/vendor/modernizr.min.js"></script>
+  <script type="text/javascript" src="//wurfl.io/wurfl.js"></script>
+  <script type="text/javascript"
+    src="//platform-api.sharethis.com/js/sharethis.js#property=6156bc53370144001a899495&product=custom-share-buttons"></script>
+</head>
+
+<body>
+  <div id="loading"></div>
+  <div data-include="header"></div>
+
+  <section class="section payment-page">
+    <div class="content-wrap">
+      <div class="container">
+        <div class="row justify-content-center">
+          <div class="col-12 col-md-10 col-lg-8">
+            <h2 class="section-heading text-primary no-after mb-4 text-center">
+              Payment Instructions
+            </h2>
+            <div id="payment-instruction-root"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <div data-include="footer"></div>
+
+  <script src="js/vendor/jquery.min.js"></script>
+  <script src="js/vendor/popper.min.js"></script>
+  <script src="js/vendor/bootstrap.min.js"></script>
+  <script src="js/vendor/owl.carousel.js"></script>
+  <script src="js/vendor/jquery.magnific-popup.min.js"></script>
+  <script src="js/script.js"></script>
+  <script
+    src="https://app.ecwid.com/script.js?37334002&data_platform=code&data_date=2021-10-15"
+    charset="utf-8"
+  ></script>
+  <script src="js/vendor/qrcode.min.js"></script>
+  <script src="js/payment-ecwid.js"></script>
+  <script>
+    $("#payment-instruction-root").load("payment-instruction.html", function () {
+      if (typeof window.initPaymentInstructions === "function") {
+        window.initPaymentInstructions();
+      }
+    });
+  </script>
+</body>
+
+</html>
