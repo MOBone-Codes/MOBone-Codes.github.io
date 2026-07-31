@@ -322,7 +322,7 @@ function getBannerType() {
       )
     ) {
       $("#bannerContent").html(
-        '<a href="./gservethestrays"><img class="popup-image" src="./images/mobone/offers/servethestrays.jpg" /></a><a href="#" class="close_popup"></a>'
+        '<a href="./gservethestrays"><img class="popup-image" src="./images/mobone/offers/servethestrays.png" /></a><a href="#" class="close_popup"></a>'
       );
       //ServetheStrays
     } else if (
@@ -333,7 +333,7 @@ function getBannerType() {
       )
     ) {
       $("#bannerContent").html(
-        '<a href="./thanks"><img class="popup-image" src="./images/mobone/offers/servethestrays.jpg" /></a><a href="#" class="close_popup"></a>'
+        '<a href="./thanks"><img class="popup-image" src="./images/mobone/offers/servethestrays.png" /></a><a href="#" class="close_popup"></a>'
       );
       //Thanks
     } else {
