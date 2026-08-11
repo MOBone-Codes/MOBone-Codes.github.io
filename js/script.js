@@ -266,13 +266,38 @@ function sendEMail(data, emailType) {
 }
 
 function isDateBetween(startDate, endDate, targetDate) {
-  // Parse the dates to ensure they are valid Date objects
-  startDate = new Date(startDate);
-  endDate = new Date(endDate);
-  targetDate = new Date(targetDate);
+  const istOffset = 5.5 * 60 * 60 * 1000;
 
-  // Check if the target date is between the start and end dates
-  return targetDate >= startDate && targetDate <= endDate;
+  function toISTTimestamp(value, hours, minutes, seconds) {
+    const parsedDate = new Date(value);
+    if (Number.isNaN(parsedDate.getTime())) {
+      return null;
+    }
+
+    const istDate = new Date(parsedDate.getTime() + istOffset);
+    const year = istDate.getUTCFullYear();
+    const month = istDate.getUTCMonth();
+    const day = istDate.getUTCDate();
+
+    return Date.UTC(
+      year,
+      month,
+      day,
+      hours !== undefined ? hours : istDate.getUTCHours(),
+      minutes !== undefined ? minutes : istDate.getUTCMinutes(),
+      seconds !== undefined ? seconds : istDate.getUTCSeconds()
+    ) - istOffset;
+  }
+
+  const startTimestamp = toISTTimestamp(startDate, 0, 0, 0);
+  const endTimestamp = toISTTimestamp(endDate, 12, 59, 59);
+  const targetTimestamp = toISTTimestamp(targetDate);
+
+  if (startTimestamp === null || endTimestamp === null || targetTimestamp === null) {
+    return false;
+  }
+
+  return targetTimestamp >= startTimestamp && targetTimestamp <= endTimestamp;
 }
 function checkisvalidpage(page) {
   var req = new XMLHttpRequest();
