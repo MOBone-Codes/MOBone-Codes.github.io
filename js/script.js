@@ -297,7 +297,7 @@ function checkisvalidpage(page) {
     if (
       page == "thanks" &&
       !isDateBetween(
-        new Date(currentYear + "/08/13"),
+        new Date(currentYear + "/08/12"),
         new Date(currentYear + "/08/25"),
         currentDate
       )
@@ -317,7 +317,7 @@ function getBannerType() {
     if (
       isDateBetween(
         new Date(currentYear + "/08/01"),
-        new Date(currentYear + "/08/11"),
+        new Date(currentYear + "/08/12"),
         currentDate
       )
     ) {
