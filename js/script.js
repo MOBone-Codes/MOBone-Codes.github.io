@@ -265,36 +265,43 @@ function sendEMail(data, emailType) {
     .catch((error) => onError);
 }
 
-function isDateBetween(startDate, endDate, targetDate) {
+function parseIST(value, endOfDay) {
   const istOffset = 5.5 * 60 * 60 * 1000;
 
-  function parseIST(value, endOfDay) {
-    if (value instanceof Date) {
-      return value.getTime();
-    }
-
-    if (typeof value === "string") {
-      const trimmed = value.trim();
-      const istPattern = /^\s*(\d{4})[\/\-](\d{2})[\/\-](\d{2})(?:[ T](\d{2}):(\d{2})(?::(\d{2})(?:\.(\d{1,3}))?)?)?(?:\s*IST)?\s*$/i;
-      const match = istPattern.exec(trimmed);
-
-      if (match) {
-        const year = parseInt(match[1], 10);
-        const month = parseInt(match[2], 10) - 1;
-        const day = parseInt(match[3], 10);
-        const hour = match[4] !== undefined ? parseInt(match[4], 10) : endOfDay ? 23 : 0;
-        const minute = match[5] !== undefined ? parseInt(match[5], 10) : endOfDay ? 59 : 0;
-        const second = match[6] !== undefined ? parseInt(match[6], 10) : endOfDay ? 59 : 0;
-        const milli = match[7] !== undefined ? parseInt(match[7].padEnd(3, "0"), 10) : endOfDay ? 999 : 0;
-
-        return Date.UTC(year, month, day, hour, minute, second, milli) - istOffset;
-      }
-    }
-
-    const parsedDate = new Date(value);
-    return Number.isNaN(parsedDate.getTime()) ? null : parsedDate.getTime();
+  if (typeof value === "number") {
+    return value;
   }
 
+  if (value instanceof Date) {
+    return value.getTime();
+  }
+
+  if (typeof value !== "string") {
+    return null;
+  }
+
+  const trimmed = value.trim();
+  const istPattern = /^\s*(\d{4})[\/\-](\d{2})[\/\-](\d{2})(?:[ T](\d{2}):(\d{2})(?::(\d{2})(?:\.(\d{1,3}))?)?)?(?:\s*IST)?\s*$/i;
+  const match = istPattern.exec(trimmed);
+
+  if (match) {
+    const year = parseInt(match[1], 10);
+    const month = parseInt(match[2], 10) - 1;
+    const day = parseInt(match[3], 10);
+    const hour = match[4] !== undefined ? parseInt(match[4], 10) : endOfDay ? 23 : 0;
+    const minute = match[5] !== undefined ? parseInt(match[5], 10) : endOfDay ? 59 : 0;
+    const second = match[6] !== undefined ? parseInt(match[6], 10) : endOfDay ? 59 : 0;
+    const milli = match[7] !== undefined ? parseInt(match[7].padEnd(3, "0"), 10) : endOfDay ? 999 : 0;
+
+    // The input is given in IST. Convert local IST values to UTC timestamp for correct comparisons.
+    return Date.UTC(year, month, day, hour, minute, second, milli) - istOffset;
+  }
+
+  const parsedDate = new Date(value);
+  return Number.isNaN(parsedDate.getTime()) ? null : parsedDate.getTime();
+}
+
+function isDateBetween(startDate, endDate, targetDate) {
   const startTimestamp = parseIST(startDate, false);
   const endTimestamp = parseIST(endDate, true);
   const targetTimestamp = parseIST(targetDate, false);
@@ -305,6 +312,30 @@ function isDateBetween(startDate, endDate, targetDate) {
 
   return targetTimestamp >= startTimestamp && targetTimestamp <= endTimestamp;
 }
+
+function getServeTheStraysEndDate(currentYear) {
+  return `${currentYear}/08/13 11:59:59 IST`;
+}
+
+function formatISTDate(value) {
+  const ms = parseIST(value, false);
+  if (ms === null) {
+    return String(value);
+  }
+
+  const istOffset = 5.5 * 60 * 60 * 1000;
+  const istDate = new Date(ms + istOffset);
+  const year = istDate.getUTCFullYear();
+  const month = String(istDate.getUTCMonth() + 1).padStart(2, "0");
+  const day = String(istDate.getUTCDate()).padStart(2, "0");
+  const hour = String(istDate.getUTCHours()).padStart(2, "0");
+  const minute = String(istDate.getUTCMinutes()).padStart(2, "0");
+  const second = String(istDate.getUTCSeconds()).padStart(2, "0");
+
+  return `${year}/${month}/${day} ${hour}:${minute}:${second} IST`;
+}
+
+
 function checkisvalidpage(page) {
   var req = new XMLHttpRequest();
   req.open("GET", document.location, true);
@@ -313,12 +344,13 @@ function checkisvalidpage(page) {
     var headers = req.getResponseHeader("date");
     var currentDate = new Date(headers);
     var currentYear = currentDate.getFullYear();
+    var serveTheStraysEndDate = getServeTheStraysEndDate(currentYear);
 
     if (
       page == "servethestrays" &&
       !isDateBetween(
-        new Date(currentYear + "/08/01 00:00:00 IST"),
-        new Date(currentYear + "/08/13 11:59:59 IST"),
+        `${currentYear}/08/01 00:00:00 IST`,
+        serveTheStraysEndDate,
         currentDate
       )
     ) {
@@ -328,8 +360,8 @@ function checkisvalidpage(page) {
     if (
       page == "thanks" &&
       !isDateBetween(
-        new Date(currentYear + "/08/13 12:00:00 IST"),
-        new Date(currentYear + "/08/25 23:59:59 IST"),
+        serveTheStraysEndDate,
+        `${currentYear}/08/25 23:59:59 IST`,
         currentDate
       )
     ) {
@@ -345,21 +377,23 @@ function getBannerType() {
     var headers = req.getResponseHeader("date");
     var currentDate = new Date(headers);
     var currentYear = currentDate.getFullYear();
+    var serveTheStraysEndDate = getServeTheStraysEndDate(currentYear);
+
     if (
       isDateBetween(
-        new Date(currentYear + "/08/01 00:00:00 IST"),
-        new Date(currentYear + "/08/13 11:59:59 IST"),
+        `${currentYear}/08/01 00:00:00 IST`,
+        serveTheStraysEndDate,
         currentDate
       )
     ) {
       $("#bannerContent").html(
-        '<a href="./gservethestrays"><img class="popup-image" src="./images/mobone/offers/servethestrays.png" /></a><a href="#" class="close_popup"></a>'
+        '<a href="./gservethestrays"><img class="popup-image" src="./images/mobone/offers/servethestrays.png" /></a><p style="margin: 8px 0 0; font-size: 14px; color: #fbfbfb;">Ends at: ' + formatISTDate(serveTheStraysEndDate) + '</p><a href="#" class="close_popup"></a>'
       );
       //ServetheStrays
     } else if (
       isDateBetween(
-        new Date(currentYear + "/08/13 12:00:00 IST"),
-        new Date(currentYear + "/08/25 23:59:59 IST"),
+        serveTheStraysEndDate,
+        `${currentYear}/08/25 23:59:59 IST`,
         currentDate
       )
     ) {
