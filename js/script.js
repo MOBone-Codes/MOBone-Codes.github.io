@@ -268,30 +268,36 @@ function sendEMail(data, emailType) {
 function isDateBetween(startDate, endDate, targetDate) {
   const istOffset = 5.5 * 60 * 60 * 1000;
 
-  function toISTTimestamp(value, hours, minutes, seconds) {
-    const parsedDate = new Date(value);
-    if (Number.isNaN(parsedDate.getTime())) {
-      return null;
+  function parseIST(value, endOfDay) {
+    if (value instanceof Date) {
+      return value.getTime();
     }
 
-    const istDate = new Date(parsedDate.getTime() + istOffset);
-    const year = istDate.getUTCFullYear();
-    const month = istDate.getUTCMonth();
-    const day = istDate.getUTCDate();
+    if (typeof value === "string") {
+      const trimmed = value.trim();
+      const istPattern = /^\s*(\d{4})[\/\-](\d{2})[\/\-](\d{2})(?:[ T](\d{2}):(\d{2})(?::(\d{2})(?:\.(\d{1,3}))?)?)?(?:\s*IST)?\s*$/i;
+      const match = istPattern.exec(trimmed);
 
-    return Date.UTC(
-      year,
-      month,
-      day,
-      hours !== undefined ? hours : istDate.getUTCHours(),
-      minutes !== undefined ? minutes : istDate.getUTCMinutes(),
-      seconds !== undefined ? seconds : istDate.getUTCSeconds()
-    ) - istOffset;
+      if (match) {
+        const year = parseInt(match[1], 10);
+        const month = parseInt(match[2], 10) - 1;
+        const day = parseInt(match[3], 10);
+        const hour = match[4] !== undefined ? parseInt(match[4], 10) : endOfDay ? 23 : 0;
+        const minute = match[5] !== undefined ? parseInt(match[5], 10) : endOfDay ? 59 : 0;
+        const second = match[6] !== undefined ? parseInt(match[6], 10) : endOfDay ? 59 : 0;
+        const milli = match[7] !== undefined ? parseInt(match[7].padEnd(3, "0"), 10) : endOfDay ? 999 : 0;
+
+        return Date.UTC(year, month, day, hour, minute, second, milli) - istOffset;
+      }
+    }
+
+    const parsedDate = new Date(value);
+    return Number.isNaN(parsedDate.getTime()) ? null : parsedDate.getTime();
   }
 
-  const startTimestamp = toISTTimestamp(startDate, 0, 0, 0);
-  const endTimestamp = toISTTimestamp(endDate, 12, 59, 59);
-  const targetTimestamp = toISTTimestamp(targetDate);
+  const startTimestamp = parseIST(startDate, false);
+  const endTimestamp = parseIST(endDate, true);
+  const targetTimestamp = parseIST(targetDate, false);
 
   if (startTimestamp === null || endTimestamp === null || targetTimestamp === null) {
     return false;
@@ -311,8 +317,8 @@ function checkisvalidpage(page) {
     if (
       page == "servethestrays" &&
       !isDateBetween(
-        new Date(currentYear + "/08/01"),
-        new Date(currentYear + "/08/12"),
+        new Date(currentYear + "/08/01 00:00:00"),
+        new Date(currentYear + "/08/13 11:59:59"),
         currentDate
       )
     ) {
@@ -322,8 +328,8 @@ function checkisvalidpage(page) {
     if (
       page == "thanks" &&
       !isDateBetween(
-        new Date(currentYear + "/08/12"),
-        new Date(currentYear + "/08/25"),
+        new Date(currentYear + "/08/13 12:00:00"),
+        new Date(currentYear + "/08/25 23:59:59"),
         currentDate
       )
     ) {
@@ -341,8 +347,8 @@ function getBannerType() {
     var currentYear = currentDate.getFullYear();
     if (
       isDateBetween(
-        new Date(currentYear + "/08/01"),
-        new Date(currentYear + "/08/12"),
+        new Date(currentYear + "/08/01 00:00:00"),
+        new Date(currentYear + "/08/13 11:59:59"),
         currentDate
       )
     ) {
@@ -352,8 +358,8 @@ function getBannerType() {
       //ServetheStrays
     } else if (
       isDateBetween(
-        new Date(currentYear + "/08/12"),
-        new Date(currentYear + "/08/25"),
+        new Date(currentYear + "/08/13 12:00:00"),
+        new Date(currentYear + "/08/25 23:59:59"),
         currentDate
       )
     ) {
