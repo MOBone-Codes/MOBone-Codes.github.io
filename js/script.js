@@ -317,8 +317,8 @@ function checkisvalidpage(page) {
     if (
       page == "servethestrays" &&
       !isDateBetween(
-        new Date(currentYear + "/08/01 00:00:00"),
-        new Date(currentYear + "/08/13 11:59:59"),
+        new Date(currentYear + "/08/01 00:00:00 IST"),
+        new Date(currentYear + "/08/13 11:59:59 IST"),
         currentDate
       )
     ) {
@@ -328,8 +328,8 @@ function checkisvalidpage(page) {
     if (
       page == "thanks" &&
       !isDateBetween(
-        new Date(currentYear + "/08/13 12:00:00"),
-        new Date(currentYear + "/08/25 23:59:59"),
+        new Date(currentYear + "/08/13 12:00:00 IST"),
+        new Date(currentYear + "/08/25 23:59:59 IST"),
         currentDate
       )
     ) {
@@ -347,8 +347,8 @@ function getBannerType() {
     var currentYear = currentDate.getFullYear();
     if (
       isDateBetween(
-        new Date(currentYear + "/08/01 00:00:00"),
-        new Date(currentYear + "/08/13 11:59:59"),
+        new Date(currentYear + "/08/01 00:00:00 IST"),
+        new Date(currentYear + "/08/13 11:59:59 IST"),
         currentDate
       )
     ) {
@@ -358,8 +358,8 @@ function getBannerType() {
       //ServetheStrays
     } else if (
       isDateBetween(
-        new Date(currentYear + "/08/13 12:00:00"),
-        new Date(currentYear + "/08/25 23:59:59"),
+        new Date(currentYear + "/08/13 12:00:00 IST"),
+        new Date(currentYear + "/08/25 23:59:59 IST"),
         currentDate
       )
     ) {
